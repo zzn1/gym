@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sun May 03 09:05:01 CST 2020
+cas-client-core-3.2.2.pom>aliyun-repos=
+cas-client-core-3.2.2.jar>aliyun-repos=
+cas-client-core-3.2.2.jar>=
+cas-client-core-3.2.2.pom>jeesite-repos=
+cas-client-core-3.2.2-sources.jar>jeesite-repos=
+cas-client-core-3.2.2-sources.jar>aliyun-repos=
+cas-client-core-3.2.2.jar>jeesite-repos=

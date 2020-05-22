@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:33:59 CST 2020
+maven-repository-metadata-2.0.8.jar>jeesite-repos=
+maven-repository-metadata-2.0.8.pom>aliyun-repos=
+maven-repository-metadata-2.0.8.pom>jeesite-repos=

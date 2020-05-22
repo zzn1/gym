@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 11 11:47:14 CST 2020
+jline-2.14.2-sources.jar>aliyun-repos=
+jline-2.14.2.pom>aliyun-repos=
+jline-2.14.2.jar>aliyun-repos=

@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:33:59 CST 2020
+junit-3.8.1.pom>jeesite-repos=
+junit-3.8.1.pom>aliyun-repos=
+junit-3.8.1.jar>jeesite-repos=
+junit-3.8.1.jar>aliyun-repos=

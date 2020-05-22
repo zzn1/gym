@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:35:20 CST 2020
+activiti-modeler-5.21.0.jar>jeesite-repos=
+activiti-modeler-5.21.0-sources.jar>jeesite-repos=
+activiti-modeler-5.21.0.pom>jeesite-repos=
+activiti-modeler-5.21.0.jar>=

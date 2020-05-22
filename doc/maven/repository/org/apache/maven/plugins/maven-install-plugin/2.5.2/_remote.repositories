@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:39:13 CST 2020
+maven-install-plugin-2.5.2.jar>jeesite-repos=
+maven-install-plugin-2.5.2.pom>aliyun-repos=
+maven-install-plugin-2.5.2.jar>aliyun-repos=
+maven-install-plugin-2.5.2.pom>jeesite-repos=

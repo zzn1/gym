@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 11 11:47:07 CST 2020
+mybatis-3.4.6-sources.jar>aliyun-repos=
+mybatis-3.4.6.pom>aliyun-repos=
+mybatis-3.4.6.jar>aliyun-repos=

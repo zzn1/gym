@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 11 11:46:44 CST 2020
+postgresql-42.2.5.jar>aliyun-repos=
+postgresql-42.2.5-sources.jar>aliyun-repos=
+postgresql-42.2.5.pom>aliyun-repos=

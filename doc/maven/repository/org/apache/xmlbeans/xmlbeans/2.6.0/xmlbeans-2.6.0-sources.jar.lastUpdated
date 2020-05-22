@@ -1,0 +1,8 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 11 11:46:30 CST 2020
+@default-jeesite-repos-http\://maven.jeesite.net/repository/maven-public/.lastUpdated=1586576790068
+http\://maven.jeesite.net/repository/maven-public/.error=Could not transfer artifact org.apache.xmlbeans\:xmlbeans\:jar\:sources\:2.6.0 from/to jeesite-repos (http\://maven.jeesite.net/repository/maven-public)\: Access denied to http\://maven.jeesite.net/repository/maven-public/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0-sources.jar. Error code 401, Unauthorized
+https\://repo.maven.apache.org/maven2/.lastUpdated=1586576790256
+https\://maven.aliyun.com/repository/public/.error=
+https\://maven.aliyun.com/repository/public/.lastUpdated=1586576790037
+https\://repo.maven.apache.org/maven2/.error=

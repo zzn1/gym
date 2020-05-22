@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:35:20 CST 2020
+commons-email-1.4.pom>jeesite-repos=
+commons-email-1.4.jar>=
+commons-email-1.4.jar>jeesite-repos=
+commons-email-1.4-sources.jar>jeesite-repos=

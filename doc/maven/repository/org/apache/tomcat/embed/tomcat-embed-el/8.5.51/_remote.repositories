@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 11 11:47:24 CST 2020
+tomcat-embed-el-8.5.51.jar>aliyun-repos=
+tomcat-embed-el-8.5.51-sources.jar>aliyun-repos=
+tomcat-embed-el-8.5.51.pom>aliyun-repos=

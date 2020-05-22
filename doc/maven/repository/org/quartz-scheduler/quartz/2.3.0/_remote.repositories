@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 11 11:47:31 CST 2020
+quartz-2.3.0-sources.jar>aliyun-repos=
+quartz-2.3.0.pom>aliyun-repos=
+quartz-2.3.0.jar>aliyun-repos=

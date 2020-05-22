@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.jeesite</groupId>
+  <artifactId>jeesite-test</artifactId>
+  <versioning>
+    <versions>
+      <version>4.1.8-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20200501093602</lastUpdated>
+  </versioning>
+</metadata>

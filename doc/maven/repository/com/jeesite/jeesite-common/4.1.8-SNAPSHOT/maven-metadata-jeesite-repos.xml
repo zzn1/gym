@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.jeesite</groupId>
+  <artifactId>jeesite-common</artifactId>
+  <version>4.1.8-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20200314.073503</timestamp>
+      <buildNumber>6</buildNumber>
+    </snapshot>
+    <lastUpdated>20200314170000</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>4.1.8-20200314.073503-6</value>
+        <updated>20200314073503</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>4.1.8-20200314.073503-6</value>
+        <updated>20200314073503</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

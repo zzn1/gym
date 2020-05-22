@@ -1,0 +1,8 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:35:20 CST 2020
+xpp3_min-1.1.4c.jar>jeesite-repos=
+xpp3_min-1.1.4c.jar>aliyun-repos=
+xpp3_min-1.1.4c.jar>=
+xpp3_min-1.1.4c-sources.jar>jeesite-repos=
+xpp3_min-1.1.4c.pom>aliyun-repos=
+xpp3_min-1.1.4c.pom>jeesite-repos=

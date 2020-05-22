@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:35:20 CST 2020
+fop-0.94.pom>jeesite-repos=
+fop-0.94.jar>jeesite-repos=
+fop-0.94.jar>=

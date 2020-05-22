@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.yipan.dao.YpCardtypeDao">
+    
+	<sql id="ypCardtypeColumns">
+		a.area AS "area",
+		a.cardtype AS "cardtype",
+		a.sstored AS "sstored",
+		a.term AS "term",
+		a.equity AS "equity",
+		a.creat_by AS "creatBy",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="ypCardtypeJoins">
+	</sql>
+    
+	<select id="get" resultType="YpCardtype">
+		SELECT 
+			<include refid="ypCardtypeColumns"/>
+		FROM yp_cardtype a
+		<include refid="ypCardtypeJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="YpCardtype">
+		SELECT 
+			<include refid="ypCardtypeColumns"/>
+		FROM yp_cardtype a
+		<include refid="ypCardtypeJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="area != null and area != ''">
+				AND a.area = #{area}
+			</if>
+			<if test="cardtype != null and cardtype != ''">
+				AND a.cardtype = #{cardtype}
+			</if>
+			<if test="term != null and term != ''">
+				AND a.term = #{term}
+			</if>
+			<if test="equity != null and equity != ''">
+				AND a.equity = #{equity}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="YpCardtype">
+		SELECT 
+			<include refid="ypCardtypeColumns"/>
+		FROM yp_cardtype a
+		<include refid="ypCardtypeJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO yp_cardtype(
+			area,
+			cardtype,
+			sstored,
+			term,
+			equity,
+			creat_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{area},
+			#{cardtype},
+			#{sstored},
+			#{term},
+			#{equity},
+			#{creatBy},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE yp_cardtype SET 	
+			area = #{area},
+			cardtype = #{cardtype},
+			sstored = #{sstored},
+			term = #{term},
+			equity = #{equity},
+			creat_by = #{creatBy},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE yp_cardtype SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

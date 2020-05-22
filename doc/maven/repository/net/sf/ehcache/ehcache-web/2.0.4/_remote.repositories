@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:35:20 CST 2020
+ehcache-web-2.0.4.jar>=
+ehcache-web-2.0.4.pom>jeesite-repos=
+ehcache-web-2.0.4.jar>jeesite-repos=
+ehcache-web-2.0.4-sources.jar>jeesite-repos=

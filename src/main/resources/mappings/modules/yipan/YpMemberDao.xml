@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.yipan.dao.YpMemberDao">
+    
+	<sql id="ypMemberColumns">
+		a.openid AS "openid",
+		a.carduser AS "carduser",
+		a.sex AS "sex",
+		a.phone AS "phone",
+		a.idcard AS "idcard",
+		a.creat_by AS "creatBy",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="ypMemberJoins">
+	</sql>
+    
+	<select id="get" resultType="YpMember">
+		SELECT 
+			<include refid="ypMemberColumns"/>
+		FROM yp_member a
+		<include refid="ypMemberJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="YpMember">
+		SELECT 
+			<include refid="ypMemberColumns"/>
+		FROM yp_member a
+		<include refid="ypMemberJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="carduser != null and carduser != ''">
+				AND a.carduser LIKE 
+					<if test="dbName == 'oracle'">'%'||#{carduser}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{carduser}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{carduser},'%')</if>
+			</if>
+			<if test="sex != null and sex != ''">
+				AND a.sex = #{sex}
+			</if>
+			<if test="phone != null and phone != ''">
+				AND a.phone = #{phone}
+			</if>
+			<if test="idcard != null and idcard != ''">
+				AND a.idcard = #{idcard}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="YpMember">
+		SELECT 
+			<include refid="ypMemberColumns"/>
+		FROM yp_member a
+		<include refid="ypMemberJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO yp_member(
+			openid,
+			carduser,
+			sex,
+			phone,
+			idcard,
+			creat_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{openid},
+			#{carduser},
+			#{sex},
+			#{phone},
+			#{idcard},
+			#{creatBy},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE yp_member SET 	
+			openid = #{openid},
+			carduser = #{carduser},
+			sex = #{sex},
+			phone = #{phone},
+			idcard = #{idcard},
+			creat_by = #{creatBy},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE yp_member SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

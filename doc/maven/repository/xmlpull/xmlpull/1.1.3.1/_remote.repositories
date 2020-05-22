@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:35:20 CST 2020
+xmlpull-1.1.3.1.jar>aliyun-repos=
+xmlpull-1.1.3.1.jar>=
+xmlpull-1.1.3.1.pom>jeesite-repos=
+xmlpull-1.1.3.1.pom>aliyun-repos=
+xmlpull-1.1.3.1.jar>jeesite-repos=

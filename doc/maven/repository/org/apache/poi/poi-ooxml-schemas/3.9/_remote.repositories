@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:35:20 CST 2020
+poi-ooxml-schemas-3.9.jar>=
+poi-ooxml-schemas-3.9.pom>jeesite-repos=
+poi-ooxml-schemas-3.9.jar>jeesite-repos=

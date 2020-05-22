@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 11 11:47:06 CST 2020
+javax.transaction-api-1.2-sources.jar>aliyun-repos=
+javax.transaction-api-1.2.pom>aliyun-repos=
+javax.transaction-api-1.2.jar>aliyun-repos=

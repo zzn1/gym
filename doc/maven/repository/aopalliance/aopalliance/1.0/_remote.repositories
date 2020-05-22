@@ -1,0 +1,8 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:35:20 CST 2020
+aopalliance-1.0-sources.jar>jeesite-repos=
+aopalliance-1.0.pom>aliyun-repos=
+aopalliance-1.0.pom>jeesite-repos=
+aopalliance-1.0.jar>aliyun-repos=
+aopalliance-1.0.jar>jeesite-repos=
+aopalliance-1.0.jar>=

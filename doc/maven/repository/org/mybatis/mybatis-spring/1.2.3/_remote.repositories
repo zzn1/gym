@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:35:20 CST 2020
+mybatis-spring-1.2.3-sources.jar>jeesite-repos=
+mybatis-spring-1.2.3.jar>=
+mybatis-spring-1.2.3.pom>jeesite-repos=
+mybatis-spring-1.2.3.jar>jeesite-repos=

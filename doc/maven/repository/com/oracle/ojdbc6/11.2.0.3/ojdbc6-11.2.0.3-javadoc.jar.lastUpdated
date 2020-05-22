@@ -1,0 +1,8 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 11 11:47:34 CST 2020
+@default-jeesite-repos-http\://maven.jeesite.net/repository/maven-public/.lastUpdated=1586576854335
+http\://maven.jeesite.net/repository/maven-public/.error=Could not transfer artifact com.oracle\:ojdbc6\:jar\:javadoc\:11.2.0.3 from/to jeesite-repos (http\://maven.jeesite.net/repository/maven-public)\: Access denied to http\://maven.jeesite.net/repository/maven-public/com/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3-javadoc.jar. Error code 401, Unauthorized
+https\://repo.maven.apache.org/maven2/.lastUpdated=1586576854538
+https\://maven.aliyun.com/repository/public/.error=
+https\://maven.aliyun.com/repository/public/.lastUpdated=1586576854304
+https\://repo.maven.apache.org/maven2/.error=

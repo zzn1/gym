@@ -1,0 +1,10 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:35:17 CST 2020
+@default-jeesite-repos-http\://maven.jeesite.net/repository/maven-public/.lastUpdated=1586576792396
+http\://maven.jeesite.net/repository/maven-public/.error=Could not transfer artifact stax\:stax-api\:jar\:sources\:1.0.1 from/to jeesite-repos (http\://maven.jeesite.net/repository/maven-public)\: Access denied to http\://maven.jeesite.net/repository/maven-public/stax/stax-api/1.0.1/stax-api-1.0.1-sources.jar. Error code 401, Unauthorized
+http\://maven.aliyun.com/nexus/content/groups/public/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1588412117816
+https\://maven.aliyun.com/repository/public/.error=
+https\://maven.aliyun.com/repository/public/.lastUpdated=1586576792365
+https\://repo.maven.apache.org/maven2/.error=
+http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1588412117187

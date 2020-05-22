@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 02 17:35:20 CST 2020
+jedis-2.5.1.jar>jeesite-repos=
+jedis-2.5.1-sources.jar>jeesite-repos=
+jedis-2.5.1.jar>=
+jedis-2.5.1.pom>jeesite-repos=
