@@ -4,8 +4,12 @@
     
 	<sql id="ypRockHallColumns">
 		a.id AS "id",
+		a.rock_no AS "rockNo",
 		a.region AS "region",
 		a.name AS "name",
+		a.add AS "add",
+		a.price_v10 AS "priceV10",
+		a.price_v20 AS "priceV20",
 		a.status AS "status",
 		a.type AS "type",
 		a.create_by AS "createBy.id",
@@ -34,6 +38,12 @@
 		<include refid="ypRockHallJoins"/>
 		<where>
 			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="rockNo != null and rockNo != ''">
+				AND a.rock_no = #{rockNo}
+			</if>
 			<if test="region != null and region != ''">
 				AND a.region = #{region}
 			</if>
@@ -42,6 +52,15 @@
 					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
 					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
 					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="add != null and add != ''">
+				AND a.add = #{add}
+			</if>
+			<if test="priceV10 != null and priceV10 != ''">
+				AND a.price_v10 = #{priceV10}
+			</if>
+			<if test="priceV20 != null and priceV20 != ''">
+				AND a.price_v20 = #{priceV20}
 			</if>
 			<if test="status != null and status != ''">
 				AND a.status = #{status}
@@ -81,8 +100,12 @@
 	<insert id="insert">
 		INSERT INTO yp_rock_hall(
 			id,
+			rock_no,
 			region,
 			name,
+			add,
+			price_v10,
+			price_v20,
 			status,
 			type,
 			create_by,
@@ -93,8 +116,12 @@
 			del_flag
 		) VALUES (
 			#{id},
+			#{rockNo},
 			#{region},
 			#{name},
+			#{add},
+			#{priceV10},
+			#{priceV20},
 			#{status},
 			#{type},
 			#{createBy.id},
@@ -108,8 +135,13 @@
 	
 	<update id="update">
 		UPDATE yp_rock_hall SET 	
+			id = #{id},
+			rock_no = #{rockNo},
 			region = #{region},
 			name = #{name},
+			add = #{add},
+			price_v10 = #{priceV10},
+			price_v20 = #{priceV20},
 			status = #{status},
 			type = #{type},
 			update_by = #{updateBy.id},

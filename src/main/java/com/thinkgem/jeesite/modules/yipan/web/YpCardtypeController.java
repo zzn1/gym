@@ -25,7 +25,7 @@ import com.thinkgem.jeesite.modules.yipan.service.YpCardtypeService;
 /**
  * 卡种表方案Controller
  * @author zcx
- * @version 2020-05-09
+ * @version 2020-05-24
  */
 @Controller
 @RequestMapping(value = "${adminPath}/yipan/ypCardtype")

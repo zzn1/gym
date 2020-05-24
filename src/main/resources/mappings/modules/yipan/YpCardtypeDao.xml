@@ -3,6 +3,7 @@
 <mapper namespace="com.thinkgem.jeesite.modules.yipan.dao.YpCardtypeDao">
     
 	<sql id="ypCardtypeColumns">
+		a.id AS "id",
 		a.area AS "area",
 		a.cardtype AS "cardtype",
 		a.sstored AS "sstored",
@@ -39,6 +40,9 @@
 			</if>
 			<if test="cardtype != null and cardtype != ''">
 				AND a.cardtype = #{cardtype}
+			</if>
+			<if test="sstored != null and sstored != ''">
+				AND a.sstored = #{sstored}
 			</if>
 			<if test="term != null and term != ''">
 				AND a.term = #{term}
@@ -77,6 +81,7 @@
 	
 	<insert id="insert">
 		INSERT INTO yp_cardtype(
+			id,
 			area,
 			cardtype,
 			sstored,
@@ -89,6 +94,7 @@
 			remarks,
 			del_flag
 		) VALUES (
+			#{id},
 			#{area},
 			#{cardtype},
 			#{sstored},

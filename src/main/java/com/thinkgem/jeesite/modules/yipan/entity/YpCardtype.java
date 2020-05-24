@@ -10,7 +10,7 @@ import com.thinkgem.jeesite.common.persistence.DataEntity;
 /**
  * 卡种表方案Entity
  * @author zcx
- * @version 2020-05-09
+ * @version 2020-05-24
  */
 public class YpCardtype extends DataEntity<YpCardtype> {
 	

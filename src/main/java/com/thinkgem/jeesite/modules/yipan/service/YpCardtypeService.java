@@ -16,7 +16,7 @@ import com.thinkgem.jeesite.modules.yipan.dao.YpCardtypeDao;
 /**
  * 卡种表方案Service
  * @author zcx
- * @version 2020-05-09
+ * @version 2020-05-24
  */
 @Service
 @Transactional(readOnly = true)

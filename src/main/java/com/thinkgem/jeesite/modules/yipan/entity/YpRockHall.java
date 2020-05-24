@@ -10,13 +10,17 @@ import com.thinkgem.jeesite.common.persistence.DataEntity;
 /**
  * 岩馆管理Entity
  * @author zcx
- * @version 2020-05-05
+ * @version 2020-05-24
  */
 public class YpRockHall extends DataEntity<YpRockHall> {
 	
 	private static final long serialVersionUID = 1L;
+	private String rockNo;		// 岩馆编号
 	private String region;		// 地区
 	private String name;		// 岩馆名称
+	private String add;		// 地址
+	private String priceV10;		// 10次卡价格
+	private String priceV20;		// 20次卡价格
 	private String status;		// 状态
 	private String type;		// 岩馆类型
 	
@@ -28,6 +32,15 @@ public class YpRockHall extends DataEntity<YpRockHall> {
 		super(id);
 	}
 
+	@Length(min=0, max=64, message="岩馆编号长度必须介于 0 和 64 之间")
+	public String getRockNo() {
+		return rockNo;
+	}
+
+	public void setRockNo(String rockNo) {
+		this.rockNo = rockNo;
+	}
+	
 	@Length(min=0, max=255, message="地区长度必须介于 0 和 255 之间")
 	public String getRegion() {
 		return region;
@@ -44,6 +57,33 @@ public class YpRockHall extends DataEntity<YpRockHall> {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	@Length(min=0, max=255, message="地址长度必须介于 0 和 255 之间")
+	public String getAdd() {
+		return add;
+	}
+
+	public void setAdd(String add) {
+		this.add = add;
+	}
+	
+	@Length(min=0, max=255, message="10次卡价格长度必须介于 0 和 255 之间")
+	public String getPriceV10() {
+		return priceV10;
+	}
+
+	public void setPriceV10(String priceV10) {
+		this.priceV10 = priceV10;
+	}
+	
+	@Length(min=0, max=255, message="20次卡价格长度必须介于 0 和 255 之间")
+	public String getPriceV20() {
+		return priceV20;
+	}
+
+	public void setPriceV20(String priceV20) {
+		this.priceV20 = priceV20;
 	}
 	
 	@Length(min=0, max=255, message="状态长度必须介于 0 和 255 之间")

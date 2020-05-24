@@ -25,11 +25,17 @@
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
 		<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
 		<ul class="ul-form">
+			<li><label>openid  ：</label>
+				<form:input path="openid" htmlEscape="false" maxlength="64" class="input-medium"/>
+			</li>
 			<li><label>姓名：</label>
 				<form:input path="carduser" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
 			<li><label>性别：</label>
 				<form:input path="sex" htmlEscape="false" maxlength="255" class="input-medium"/>
+			</li>
+			<li><label>年龄：</label>
+				<form:input path="age" htmlEscape="false" maxlength="2" class="input-medium"/>
 			</li>
 			<li><label>手机号：</label>
 				<form:input path="phone" htmlEscape="false" maxlength="12" class="input-medium"/>
@@ -45,8 +51,10 @@
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
 		<thead>
 			<tr>
+				<th>openid</th>
 				<th>姓名</th>
 				<th>性别</th>
+				<th>年龄</th>
 				<th>手机号</th>
 				<th>身份证号</th>
 				<th>更新时间</th>
@@ -58,10 +66,16 @@
 		<c:forEach items="${page.list}" var="ypMember">
 			<tr>
 				<td><a href="${ctx}/yipan/ypMember/form?id=${ypMember.id}">
-					${ypMember.carduser}
+					${ypMember.openid}
 				</a></td>
 				<td>
+					${ypMember.carduser}
+				</td>
+				<td>
 					${ypMember.sex}
+				</td>
+				<td>
+					${ypMember.age}
 				</td>
 				<td>
 					${ypMember.phone}

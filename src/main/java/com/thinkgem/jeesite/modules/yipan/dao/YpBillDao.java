@@ -5,14 +5,14 @@ package com.thinkgem.jeesite.modules.yipan.dao;
 
 import com.thinkgem.jeesite.common.persistence.CrudDao;
 import com.thinkgem.jeesite.common.persistence.annotation.MyBatisDao;
-import com.thinkgem.jeesite.modules.yipan.entity.YpCardtype;
+import com.thinkgem.jeesite.modules.yipan.entity.YpBill;
 
 /**
- * 卡种表方案DAO接口
+ * 流水记账DAO接口
  * @author zcx
  * @version 2020-05-24
  */
 @MyBatisDao
-public interface YpCardtypeDao extends CrudDao<YpCardtype> {
+public interface YpBillDao extends CrudDao<YpBill> {
 	
 }

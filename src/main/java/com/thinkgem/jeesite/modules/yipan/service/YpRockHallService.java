@@ -16,7 +16,7 @@ import com.thinkgem.jeesite.modules.yipan.dao.YpRockHallDao;
 /**
  * 岩馆管理Service
  * @author zcx
- * @version 2020-05-05
+ * @version 2020-05-24
  */
 @Service
 @Transactional(readOnly = true)

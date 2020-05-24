@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.yipan.dao.YpSignInManagementDao">
+    
+	<sql id="ypSignInManagementColumns">
+		a.id AS "id",
+		a.card_no AS "cardNo",
+		a.card_type AS "cardType",
+		a.card_holder_id AS "cardHolderId",
+		a.card_holder_name AS "cardHolderName",
+		a.rock_no AS "rockNo",
+		a.rock_name AS "rockName",
+		a.sign_in_time AS "signInTime",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="ypSignInManagementJoins">
+	</sql>
+    
+	<select id="get" resultType="YpSignInManagement">
+		SELECT 
+			<include refid="ypSignInManagementColumns"/>
+		FROM yp_sign_in_management a
+		<include refid="ypSignInManagementJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="YpSignInManagement">
+		SELECT 
+			<include refid="ypSignInManagementColumns"/>
+		FROM yp_sign_in_management a
+		<include refid="ypSignInManagementJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="cardNo != null and cardNo != ''">
+				AND a.card_no = #{cardNo}
+			</if>
+			<if test="cardType != null and cardType != ''">
+				AND a.card_type = #{cardType}
+			</if>
+			<if test="cardHolderId != null and cardHolderId != ''">
+				AND a.card_holder_id = #{cardHolderId}
+			</if>
+			<if test="cardHolderName != null and cardHolderName != ''">
+				AND a.card_holder_name = #{cardHolderName}
+			</if>
+			<if test="rockNo != null and rockNo != ''">
+				AND a.rock_no = #{rockNo}
+			</if>
+			<if test="rockName != null and rockName != ''">
+				AND a.rock_name = #{rockName}
+			</if>
+			<if test="signInTime != null and signInTime != ''">
+				AND a.sign_in_time = #{signInTime}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="YpSignInManagement">
+		SELECT 
+			<include refid="ypSignInManagementColumns"/>
+		FROM yp_sign_in_management a
+		<include refid="ypSignInManagementJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO yp_sign_in_management(
+			id,
+			card_no,
+			card_type,
+			card_holder_id,
+			card_holder_name,
+			rock_no,
+			rock_name,
+			sign_in_time,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{cardNo},
+			#{cardType},
+			#{cardHolderId},
+			#{cardHolderName},
+			#{rockNo},
+			#{rockName},
+			#{signInTime},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE yp_sign_in_management SET 	
+			card_no = #{cardNo},
+			card_type = #{cardType},
+			card_holder_id = #{cardHolderId},
+			card_holder_name = #{cardHolderName},
+			rock_no = #{rockNo},
+			rock_name = #{rockName},
+			sign_in_time = #{signInTime},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE yp_sign_in_management SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

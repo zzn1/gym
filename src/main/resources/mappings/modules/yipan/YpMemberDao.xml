@@ -3,9 +3,11 @@
 <mapper namespace="com.thinkgem.jeesite.modules.yipan.dao.YpMemberDao">
     
 	<sql id="ypMemberColumns">
+		a.id AS "id",
 		a.openid AS "openid",
 		a.carduser AS "carduser",
 		a.sex AS "sex",
+		a.age AS "age",
 		a.phone AS "phone",
 		a.idcard AS "idcard",
 		a.creat_by AS "creatBy",
@@ -34,14 +36,17 @@
 		<include refid="ypMemberJoins"/>
 		<where>
 			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="openid != null and openid != ''">
+				AND a.openid = #{openid}
+			</if>
 			<if test="carduser != null and carduser != ''">
-				AND a.carduser LIKE 
-					<if test="dbName == 'oracle'">'%'||#{carduser}||'%'</if>
-					<if test="dbName == 'mssql'">'%'+#{carduser}+'%'</if>
-					<if test="dbName == 'mysql'">concat('%',#{carduser},'%')</if>
+				AND a.carduser = #{carduser}
 			</if>
 			<if test="sex != null and sex != ''">
 				AND a.sex = #{sex}
+			</if>
+			<if test="age != null and age != ''">
+				AND a.age = #{age}
 			</if>
 			<if test="phone != null and phone != ''">
 				AND a.phone = #{phone}
@@ -80,9 +85,11 @@
 	
 	<insert id="insert">
 		INSERT INTO yp_member(
+			id,
 			openid,
 			carduser,
 			sex,
+			age,
 			phone,
 			idcard,
 			creat_by,
@@ -92,9 +99,11 @@
 			remarks,
 			del_flag
 		) VALUES (
+			#{id},
 			#{openid},
 			#{carduser},
 			#{sex},
+			#{age},
 			#{phone},
 			#{idcard},
 			#{creatBy},
@@ -111,6 +120,7 @@
 			openid = #{openid},
 			carduser = #{carduser},
 			sex = #{sex},
+			age = #{age},
 			phone = #{phone},
 			idcard = #{idcard},
 			creat_by = #{creatBy},

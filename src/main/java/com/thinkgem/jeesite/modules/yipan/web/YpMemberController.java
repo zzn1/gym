@@ -25,7 +25,7 @@ import com.thinkgem.jeesite.modules.yipan.service.YpMemberService;
 /**
  * 会员管理Controller
  * @author zcx
- * @version 2020-05-10
+ * @version 2020-05-24
  */
 @Controller
 @RequestMapping(value = "${adminPath}/yipan/ypMember")

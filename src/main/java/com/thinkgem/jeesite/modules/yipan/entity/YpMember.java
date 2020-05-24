@@ -10,7 +10,7 @@ import com.thinkgem.jeesite.common.persistence.DataEntity;
 /**
  * 会员管理Entity
  * @author zcx
- * @version 2020-05-10
+ * @version 2020-05-24
  */
 public class YpMember extends DataEntity<YpMember> {
 	
@@ -18,6 +18,7 @@ public class YpMember extends DataEntity<YpMember> {
 	private String openid;		// 微信登录，唯一账户id
 	private String carduser;		// 姓名
 	private String sex;		// 性别
+	private String age;		// 年龄
 	private String phone;		// 手机号
 	private String idcard;		// 身份证号
 	private String creatBy;		// 创建者
@@ -30,7 +31,7 @@ public class YpMember extends DataEntity<YpMember> {
 		super(id);
 	}
 
-	@Length(min=1, max=64, message="微信登录，唯一账户id长度必须介于 1 和 64 之间")
+	@Length(min=0, max=64, message="微信登录，唯一账户id长度必须介于 0 和 64 之间")
 	public String getOpenid() {
 		return openid;
 	}
@@ -55,6 +56,15 @@ public class YpMember extends DataEntity<YpMember> {
 
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+	
+	@Length(min=0, max=2, message="年龄长度必须介于 0 和 2 之间")
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
 	}
 	
 	@Length(min=0, max=12, message="手机号长度必须介于 0 和 12 之间")

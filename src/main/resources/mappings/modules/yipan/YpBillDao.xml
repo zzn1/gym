@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.yipan.dao.YpBillDao">
+    
+	<sql id="ypBillColumns">
+		a.id AS "id",
+		a.card_no AS "cardNo",
+		a.sign_in_num AS "signInNum",
+		a.original_price AS "originalPrice",
+		a.deduction_price AS "deductionPrice",
+		a.beans_num AS "beansNum",
+		a.rock_no AS "rockNo",
+		a.deduction_type AS "deductionType",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="ypBillJoins">
+	</sql>
+    
+	<select id="get" resultType="YpBill">
+		SELECT 
+			<include refid="ypBillColumns"/>
+		FROM yp_bill a
+		<include refid="ypBillJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="YpBill">
+		SELECT 
+			<include refid="ypBillColumns"/>
+		FROM yp_bill a
+		<include refid="ypBillJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="cardNo != null and cardNo != ''">
+				AND a.card_no = #{cardNo}
+			</if>
+			<if test="signInNum != null and signInNum != ''">
+				AND a.sign_in_num = #{signInNum}
+			</if>
+			<if test="originalPrice != null and originalPrice != ''">
+				AND a.original_price = #{originalPrice}
+			</if>
+			<if test="deductionPrice != null and deductionPrice != ''">
+				AND a.deduction_price = #{deductionPrice}
+			</if>
+			<if test="beansNum != null and beansNum != ''">
+				AND a.beans_num = #{beansNum}
+			</if>
+			<if test="rockNo != null and rockNo != ''">
+				AND a.rock_no = #{rockNo}
+			</if>
+			<if test="deductionType != null and deductionType != ''">
+				AND a.deduction_type = #{deductionType}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="YpBill">
+		SELECT 
+			<include refid="ypBillColumns"/>
+		FROM yp_bill a
+		<include refid="ypBillJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO yp_bill(
+			id,
+			card_no,
+			sign_in_num,
+			original_price,
+			deduction_price,
+			beans_num,
+			rock_no,
+			deduction_type,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{cardNo},
+			#{signInNum},
+			#{originalPrice},
+			#{deductionPrice},
+			#{beansNum},
+			#{rockNo},
+			#{deductionType},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE yp_bill SET 	
+			card_no = #{cardNo},
+			sign_in_num = #{signInNum},
+			original_price = #{originalPrice},
+			deduction_price = #{deductionPrice},
+			beans_num = #{beansNum},
+			rock_no = #{rockNo},
+			deduction_type = #{deductionType},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE yp_bill SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

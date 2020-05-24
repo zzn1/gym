@@ -25,7 +25,7 @@ import com.thinkgem.jeesite.modules.yipan.service.YpRockHallService;
 /**
  * 岩馆管理Controller
  * @author zcx
- * @version 2020-05-05
+ * @version 2020-05-24
  */
 @Controller
 @RequestMapping(value = "${adminPath}/yipan/ypRockHall")

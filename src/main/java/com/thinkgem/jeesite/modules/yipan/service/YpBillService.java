@@ -10,38 +10,38 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.service.CrudService;
-import com.thinkgem.jeesite.modules.yipan.entity.YpMember;
-import com.thinkgem.jeesite.modules.yipan.dao.YpMemberDao;
+import com.thinkgem.jeesite.modules.yipan.entity.YpBill;
+import com.thinkgem.jeesite.modules.yipan.dao.YpBillDao;
 
 /**
- * 会员管理Service
+ * 流水记账Service
  * @author zcx
  * @version 2020-05-24
  */
 @Service
 @Transactional(readOnly = true)
-public class YpMemberService extends CrudService<YpMemberDao, YpMember> {
+public class YpBillService extends CrudService<YpBillDao, YpBill> {
 
-	public YpMember get(String id) {
+	public YpBill get(String id) {
 		return super.get(id);
 	}
 	
-	public List<YpMember> findList(YpMember ypMember) {
-		return super.findList(ypMember);
+	public List<YpBill> findList(YpBill ypBill) {
+		return super.findList(ypBill);
 	}
 	
-	public Page<YpMember> findPage(Page<YpMember> page, YpMember ypMember) {
-		return super.findPage(page, ypMember);
-	}
-	
-	@Transactional(readOnly = false)
-	public void save(YpMember ypMember) {
-		super.save(ypMember);
+	public Page<YpBill> findPage(Page<YpBill> page, YpBill ypBill) {
+		return super.findPage(page, ypBill);
 	}
 	
 	@Transactional(readOnly = false)
-	public void delete(YpMember ypMember) {
-		super.delete(ypMember);
+	public void save(YpBill ypBill) {
+		super.save(ypBill);
+	}
+	
+	@Transactional(readOnly = false)
+	public void delete(YpBill ypBill) {
+		super.delete(ypBill);
 	}
 	
 }

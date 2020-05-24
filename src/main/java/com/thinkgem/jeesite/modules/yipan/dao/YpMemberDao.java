@@ -10,7 +10,7 @@ import com.thinkgem.jeesite.modules.yipan.entity.YpMember;
 /**
  * 会员管理DAO接口
  * @author zcx
- * @version 2020-05-10
+ * @version 2020-05-24
  */
 @MyBatisDao
 public interface YpMemberDao extends CrudDao<YpMember> {
