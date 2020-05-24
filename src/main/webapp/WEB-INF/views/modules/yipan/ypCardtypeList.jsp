@@ -28,9 +28,6 @@
 			<li><label>地区：</label>
 				<form:input path="area" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
-			<li><label>卡种：</label>
-				<form:input path="cardtype" htmlEscape="false" maxlength="255" class="input-medium"/>
-			</li>
 			<li><label>储值金额：</label>
 				<form:input path="sstored" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
@@ -49,7 +46,6 @@
 		<thead>
 			<tr>
 				<th>地区</th>
-				<th>卡种</th>
 				<th>储值金额</th>
 				<th>期限</th>
 				<th>权益</th>
@@ -64,9 +60,6 @@
 				<td><a href="${ctx}/yipan/ypCardtype/form?id=${ypCardtype.id}">
 					${ypCardtype.area}
 				</a></td>
-				<td>
-					${ypCardtype.cardtype}
-				</td>
 				<td>
 					${ypCardtype.sstored}
 				</td>

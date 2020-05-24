@@ -34,9 +34,6 @@
 			<li><label>地区：</label>
 				<form:input path="region" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
-			<li><label>岩馆名称：</label>
-				<form:input path="name" htmlEscape="false" maxlength="255" class="input-medium"/>
-			</li>
 			<li><label>地址：</label>
 				<form:input path="add" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
@@ -63,7 +60,6 @@
 				<th>结构id</th>
 				<th>岩馆编号</th>
 				<th>地区</th>
-				<th>岩馆名称</th>
 				<th>地址</th>
 				<th>10次卡价格</th>
 				<th>20次卡价格</th>
@@ -85,9 +81,6 @@
 				</td>
 				<td>
 					${ypRockHall.region}
-				</td>
-				<td>
-					${ypRockHall.name}
 				</td>
 				<td>
 					${ypRockHall.add}

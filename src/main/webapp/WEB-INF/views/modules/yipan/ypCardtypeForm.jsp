@@ -42,7 +42,7 @@
 		<div class="control-group">
 			<label class="control-label">卡种：</label>
 			<div class="controls">
-				<form:input path="cardtype" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+				<form:input path="cardType" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">

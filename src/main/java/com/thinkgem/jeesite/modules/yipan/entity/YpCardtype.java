@@ -16,7 +16,7 @@ public class YpCardtype extends DataEntity<YpCardtype> {
 	
 	private static final long serialVersionUID = 1L;
 	private String area;		// 地区
-	private String cardtype;		// 卡种
+	private String cardType;		// 卡种
 	private String sstored;		// 储值金额
 	private String term;		// 期限
 	private String equity;		// 权益
@@ -40,12 +40,12 @@ public class YpCardtype extends DataEntity<YpCardtype> {
 	}
 	
 	@Length(min=0, max=255, message="卡种长度必须介于 0 和 255 之间")
-	public String getCardtype() {
-		return cardtype;
+	public String getCardType() {
+		return cardType;
 	}
 
-	public void setCardtype(String cardtype) {
-		this.cardtype = cardtype;
+	public void setCardType(String cardType) {
+		this.cardType = cardType;
 	}
 	
 	@Length(min=0, max=255, message="储值金额长度必须介于 0 和 255 之间")

@@ -6,8 +6,8 @@
 		a.id AS "id",
 		a.card_no AS "cardNo",
 		a.card_type AS "cardType",
-		a.card_holder_id AS "cardHolderId",
-		a.card_holder_name AS "cardHolderName",
+		a.openid AS "openid",
+		a.carduser AS "carduser",
 		a.remaining_times AS "remainingTimes",
 		a.beans AS "beans",
 		a.expiration_date AS "expirationDate",
@@ -44,11 +44,11 @@
 			<if test="cardType != null and cardType != ''">
 				AND a.card_type = #{cardType}
 			</if>
-			<if test="cardHolderId != null and cardHolderId != ''">
-				AND a.card_holder_id = #{cardHolderId}
+			<if test="openid != null and openid != ''">
+				AND a.openid = #{openid}
 			</if>
-			<if test="cardHolderName != null and cardHolderName != ''">
-				AND a.card_holder_name = #{cardHolderName}
+			<if test="carduser != null and carduser != ''">
+				AND a.carduser = #{carduser}
 			</if>
 			<if test="remainingTimes != null and remainingTimes != ''">
 				AND a.remaining_times = #{remainingTimes}
@@ -96,8 +96,8 @@
 			id,
 			card_no,
 			card_type,
-			card_holder_id,
-			card_holder_name,
+			openid,
+			carduser,
 			remaining_times,
 			beans,
 			expiration_date,
@@ -112,8 +112,8 @@
 			#{id},
 			#{cardNo},
 			#{cardType},
-			#{cardHolderId},
-			#{cardHolderName},
+			#{openid},
+			#{carduser},
 			#{remainingTimes},
 			#{beans},
 			#{expirationDate},
@@ -131,8 +131,8 @@
 		UPDATE yp_card_holder SET 	
 			card_no = #{cardNo},
 			card_type = #{cardType},
-			card_holder_id = #{cardHolderId},
-			card_holder_name = #{cardHolderName},
+			openid = #{openid},
+			carduser = #{carduser},
 			remaining_times = #{remainingTimes},
 			beans = #{beans},
 			expiration_date = #{expirationDate},

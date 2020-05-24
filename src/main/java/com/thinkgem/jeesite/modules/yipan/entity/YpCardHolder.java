@@ -19,8 +19,8 @@ public class YpCardHolder extends DataEntity<YpCardHolder> {
 	private static final long serialVersionUID = 1L;
 	private String cardNo;		// 卡号
 	private String cardType;		// 卡类型
-	private String cardHolderId;		// 持卡人openid
-	private String cardHolderName;		// 持卡人姓名
+	private String openid;		// openid
+	private String carduser;		// 持卡人姓名
 	private String remainingTimes;		// 剩余次数
 	private String beans;		// 易豆
 	private Date expirationDate;		// 失效日期
@@ -52,22 +52,22 @@ public class YpCardHolder extends DataEntity<YpCardHolder> {
 		this.cardType = cardType;
 	}
 	
-	@Length(min=0, max=255, message="持卡人openid长度必须介于 0 和 255 之间")
-	public String getCardHolderId() {
-		return cardHolderId;
+	@Length(min=0, max=255, message="openid长度必须介于 0 和 255 之间")
+	public String getOpenid() {
+		return openid;
 	}
 
-	public void setCardHolderId(String cardHolderId) {
-		this.cardHolderId = cardHolderId;
+	public void setOpenid(String openid) {
+		this.openid = openid;
 	}
 	
 	@Length(min=0, max=255, message="持卡人姓名长度必须介于 0 和 255 之间")
-	public String getCardHolderName() {
-		return cardHolderName;
+	public String getCarduser() {
+		return carduser;
 	}
 
-	public void setCardHolderName(String cardHolderName) {
-		this.cardHolderName = cardHolderName;
+	public void setCarduser(String carduser) {
+		this.carduser = carduser;
 	}
 	
 	@Length(min=0, max=255, message="剩余次数长度必须介于 0 和 255 之间")

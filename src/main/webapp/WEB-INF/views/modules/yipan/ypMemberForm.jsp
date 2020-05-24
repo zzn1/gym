@@ -34,7 +34,7 @@
 		<form:hidden path="id"/>
 		<sys:message content="${message}"/>		
 		<div class="control-group">
-			<label class="control-label">openid：</label>
+			<label class="control-label">微信登录，唯一账户id：</label>
 			<div class="controls">
 				<form:input path="openid" htmlEscape="false" maxlength="64" class="input-xlarge "/>
 			</div>

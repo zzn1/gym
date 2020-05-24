@@ -6,7 +6,7 @@
 		a.id AS "id",
 		a.rock_no AS "rockNo",
 		a.region AS "region",
-		a.name AS "name",
+		a.rock_name AS "rockName",
 		a.add AS "add",
 		a.price_v10 AS "priceV10",
 		a.price_v20 AS "priceV20",
@@ -46,12 +46,6 @@
 			</if>
 			<if test="region != null and region != ''">
 				AND a.region = #{region}
-			</if>
-			<if test="name != null and name != ''">
-				AND a.name LIKE 
-					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
-					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
-					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
 			</if>
 			<if test="add != null and add != ''">
 				AND a.add = #{add}
@@ -102,7 +96,7 @@
 			id,
 			rock_no,
 			region,
-			name,
+			rock_name,
 			add,
 			price_v10,
 			price_v20,
@@ -118,7 +112,7 @@
 			#{id},
 			#{rockNo},
 			#{region},
-			#{name},
+			#{rockName},
 			#{add},
 			#{priceV10},
 			#{priceV20},
@@ -138,7 +132,7 @@
 			id = #{id},
 			rock_no = #{rockNo},
 			region = #{region},
-			name = #{name},
+			rock_name = #{rockName},
 			add = #{add},
 			price_v10 = #{priceV10},
 			price_v20 = #{priceV20},

@@ -31,11 +31,11 @@
 			<li><label>卡类型：</label>
 				<form:input path="cardType" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
-			<li><label>持卡人openid：</label>
-				<form:input path="cardHolderId" htmlEscape="false" maxlength="255" class="input-medium"/>
+			<li><label>openid：</label>
+				<form:input path="openid" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
 			<li><label>持卡人姓名：</label>
-				<form:input path="cardHolderName" htmlEscape="false" maxlength="255" class="input-medium"/>
+				<form:input path="carduser" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
 			<li><label>剩余次数：</label>
 				<form:input path="remainingTimes" htmlEscape="false" maxlength="255" class="input-medium"/>
@@ -63,7 +63,7 @@
 			<tr>
 				<th>卡号</th>
 				<th>卡类型</th>
-				<th>持卡人openid</th>
+				<th>openid</th>
 				<th>持卡人姓名</th>
 				<th>剩余次数</th>
 				<th>易豆</th>
@@ -84,10 +84,10 @@
 					${ypCardHolder.cardType}
 				</td>
 				<td>
-					${ypCardHolder.cardHolderId}
+					${ypCardHolder.openid}
 				</td>
 				<td>
-					${ypCardHolder.cardHolderName}
+					${ypCardHolder.carduser}
 				</td>
 				<td>
 					${ypCardHolder.remainingTimes}

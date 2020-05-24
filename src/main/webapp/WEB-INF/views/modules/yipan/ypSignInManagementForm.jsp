@@ -46,15 +46,15 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">持卡人id：</label>
+			<label class="control-label">openid：</label>
 			<div class="controls">
-				<form:input path="cardHolderId" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+				<form:input path="openid" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">持卡人姓名：</label>
 			<div class="controls">
-				<form:input path="cardHolderName" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+				<form:input path="carduser" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">

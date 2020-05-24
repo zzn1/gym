@@ -6,8 +6,8 @@
 		a.id AS "id",
 		a.card_no AS "cardNo",
 		a.card_type AS "cardType",
-		a.card_holder_id AS "cardHolderId",
-		a.card_holder_name AS "cardHolderName",
+		a.openid AS "openid",
+		a.carduser AS "carduser",
 		a.rock_no AS "rockNo",
 		a.rock_name AS "rockName",
 		a.sign_in_time AS "signInTime",
@@ -43,11 +43,11 @@
 			<if test="cardType != null and cardType != ''">
 				AND a.card_type = #{cardType}
 			</if>
-			<if test="cardHolderId != null and cardHolderId != ''">
-				AND a.card_holder_id = #{cardHolderId}
+			<if test="openid != null and openid != ''">
+				AND a.openid = #{openid}
 			</if>
-			<if test="cardHolderName != null and cardHolderName != ''">
-				AND a.card_holder_name = #{cardHolderName}
+			<if test="carduser != null and carduser != ''">
+				AND a.carduser = #{carduser}
 			</if>
 			<if test="rockNo != null and rockNo != ''">
 				AND a.rock_no = #{rockNo}
@@ -92,8 +92,8 @@
 			id,
 			card_no,
 			card_type,
-			card_holder_id,
-			card_holder_name,
+			openid,
+			carduser,
 			rock_no,
 			rock_name,
 			sign_in_time,
@@ -107,8 +107,8 @@
 			#{id},
 			#{cardNo},
 			#{cardType},
-			#{cardHolderId},
-			#{cardHolderName},
+			#{openid},
+			#{carduser},
 			#{rockNo},
 			#{rockName},
 			#{signInTime},
@@ -125,8 +125,8 @@
 		UPDATE yp_sign_in_management SET 	
 			card_no = #{cardNo},
 			card_type = #{cardType},
-			card_holder_id = #{cardHolderId},
-			card_holder_name = #{cardHolderName},
+			openid = #{openid},
+			carduser = #{carduser},
 			rock_no = #{rockNo},
 			rock_name = #{rockName},
 			sign_in_time = #{signInTime},

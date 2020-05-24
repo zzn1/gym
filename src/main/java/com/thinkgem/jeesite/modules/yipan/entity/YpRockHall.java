@@ -17,7 +17,7 @@ public class YpRockHall extends DataEntity<YpRockHall> {
 	private static final long serialVersionUID = 1L;
 	private String rockNo;		// 岩馆编号
 	private String region;		// 地区
-	private String name;		// 岩馆名称
+	private String rockName;		// 岩馆名称
 	private String add;		// 地址
 	private String priceV10;		// 10次卡价格
 	private String priceV20;		// 20次卡价格
@@ -51,12 +51,12 @@ public class YpRockHall extends DataEntity<YpRockHall> {
 	}
 	
 	@Length(min=0, max=255, message="岩馆名称长度必须介于 0 和 255 之间")
-	public String getName() {
-		return name;
+	public String getRockName() {
+		return rockName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setRockName(String rockName) {
+		this.rockName = rockName;
 	}
 	
 	@Length(min=0, max=255, message="地址长度必须介于 0 和 255 之间")

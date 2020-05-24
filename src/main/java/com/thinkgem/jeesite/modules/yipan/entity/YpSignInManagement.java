@@ -19,8 +19,8 @@ public class YpSignInManagement extends DataEntity<YpSignInManagement> {
 	private static final long serialVersionUID = 1L;
 	private String cardNo;		// 卡号
 	private String cardType;		// 卡类型
-	private String cardHolderId;		// 持卡人id
-	private String cardHolderName;		// 持卡人姓名
+	private String openid;		// 持卡人id
+	private String carduser;		// 持卡人姓名
 	private String rockNo;		// 岩馆编号
 	private String rockName;		// 岩馆名称
 	private Date signInTime;		// 签到时间
@@ -52,21 +52,21 @@ public class YpSignInManagement extends DataEntity<YpSignInManagement> {
 	}
 	
 	@Length(min=0, max=255, message="持卡人id长度必须介于 0 和 255 之间")
-	public String getCardHolderId() {
-		return cardHolderId;
+	public String getOpenid() {
+		return openid;
 	}
 
-	public void setCardHolderId(String cardHolderId) {
-		this.cardHolderId = cardHolderId;
+	public void setOpenid(String openid) {
+		this.openid = openid;
 	}
 	
 	@Length(min=0, max=255, message="持卡人姓名长度必须介于 0 和 255 之间")
-	public String getCardHolderName() {
-		return cardHolderName;
+	public String getCarduser() {
+		return carduser;
 	}
 
-	public void setCardHolderName(String cardHolderName) {
-		this.cardHolderName = cardHolderName;
+	public void setCarduser(String carduser) {
+		this.carduser = carduser;
 	}
 	
 	@Length(min=0, max=255, message="岩馆编号长度必须介于 0 和 255 之间")

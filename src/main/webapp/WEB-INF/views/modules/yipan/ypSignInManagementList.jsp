@@ -31,11 +31,11 @@
 			<li><label>卡类型：</label>
 				<form:input path="cardType" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
-			<li><label>持卡人id：</label>
-				<form:input path="cardHolderId" htmlEscape="false" maxlength="255" class="input-medium"/>
+			<li><label>openid：</label>
+				<form:input path="openid" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
 			<li><label>持卡人姓名：</label>
-				<form:input path="cardHolderName" htmlEscape="false" maxlength="255" class="input-medium"/>
+				<form:input path="carduser" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
 			<li><label>岩馆编号：</label>
 				<form:input path="rockNo" htmlEscape="false" maxlength="255" class="input-medium"/>
@@ -58,7 +58,7 @@
 			<tr>
 				<th>卡号</th>
 				<th>卡类型</th>
-				<th>持卡人id</th>
+				<th>openid</th>
 				<th>持卡人姓名</th>
 				<th>岩馆编号</th>
 				<th>岩馆名称</th>
@@ -78,10 +78,10 @@
 					${ypSignInManagement.cardType}
 				</td>
 				<td>
-					${ypSignInManagement.cardHolderId}
+					${ypSignInManagement.openid}
 				</td>
 				<td>
-					${ypSignInManagement.cardHolderName}
+					${ypSignInManagement.carduser}
 				</td>
 				<td>
 					${ypSignInManagement.rockNo}
