@@ -28,12 +28,12 @@ import com.thinkgem.jeesite.modules.yipan.service.YpRockHallService;
  * @version 2020-05-24
  */
 @Controller
-@RequestMapping(value = "${adminPath}/yipan/ypRockHall")
+@RequestMapping(value = "${adminPath}/ypRockHall")
 public class YpRockHallController extends BaseController {
 
 	@Autowired
 	private YpRockHallService ypRockHallService;
-	
+
 	@ModelAttribute
 	public YpRockHall get(@RequestParam(required=false) String id) {
 		YpRockHall entity = null;
@@ -45,11 +45,11 @@ public class YpRockHallController extends BaseController {
 		}
 		return entity;
 	}
-	
+
 	@RequiresPermissions("yipan:ypRockHall:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(YpRockHall ypRockHall, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<YpRockHall> page = ypRockHallService.findPage(new Page<YpRockHall>(request, response), ypRockHall); 
+		Page<YpRockHall> page = ypRockHallService.findPage(new Page<YpRockHall>(request, response), ypRockHall);
 		model.addAttribute("page", page);
 		return "modules/yipan/ypRockHallList";
 	}
@@ -71,7 +71,7 @@ public class YpRockHallController extends BaseController {
 		addMessage(redirectAttributes, "保存岩馆管理成功");
 		return "redirect:"+Global.getAdminPath()+"/yipan/ypRockHall/?repage";
 	}
-	
+
 	@RequiresPermissions("yipan:ypRockHall:edit")
 	@RequestMapping(value = "delete")
 	public String delete(YpRockHall ypRockHall, RedirectAttributes redirectAttributes) {

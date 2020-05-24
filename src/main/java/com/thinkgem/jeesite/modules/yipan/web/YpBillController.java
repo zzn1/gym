@@ -28,12 +28,12 @@ import com.thinkgem.jeesite.modules.yipan.service.YpBillService;
  * @version 2020-05-24
  */
 @Controller
-@RequestMapping(value = "${adminPath}/yipan/ypBill")
+@RequestMapping(value = "${adminPath}/ypBill")
 public class YpBillController extends BaseController {
 
 	@Autowired
 	private YpBillService ypBillService;
-	
+
 	@ModelAttribute
 	public YpBill get(@RequestParam(required=false) String id) {
 		YpBill entity = null;
@@ -45,11 +45,11 @@ public class YpBillController extends BaseController {
 		}
 		return entity;
 	}
-	
+
 	@RequiresPermissions("yipan:ypBill:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(YpBill ypBill, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<YpBill> page = ypBillService.findPage(new Page<YpBill>(request, response), ypBill); 
+		Page<YpBill> page = ypBillService.findPage(new Page<YpBill>(request, response), ypBill);
 		model.addAttribute("page", page);
 		return "modules/yipan/ypBillList";
 	}
@@ -71,7 +71,7 @@ public class YpBillController extends BaseController {
 		addMessage(redirectAttributes, "保存流水记账成功");
 		return "redirect:"+Global.getAdminPath()+"/yipan/ypBill/?repage";
 	}
-	
+
 	@RequiresPermissions("yipan:ypBill:edit")
 	@RequestMapping(value = "delete")
 	public String delete(YpBill ypBill, RedirectAttributes redirectAttributes) {

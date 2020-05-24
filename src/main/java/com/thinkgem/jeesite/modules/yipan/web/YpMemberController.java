@@ -28,12 +28,12 @@ import com.thinkgem.jeesite.modules.yipan.service.YpMemberService;
  * @version 2020-05-24
  */
 @Controller
-@RequestMapping(value = "${adminPath}/yipan/ypMember")
+@RequestMapping(value = "${adminPath}/ypMember")
 public class YpMemberController extends BaseController {
 
 	@Autowired
 	private YpMemberService ypMemberService;
-	
+
 	@ModelAttribute
 	public YpMember get(@RequestParam(required=false) String id) {
 		YpMember entity = null;
@@ -45,11 +45,11 @@ public class YpMemberController extends BaseController {
 		}
 		return entity;
 	}
-	
+
 	@RequiresPermissions("yipan:ypMember:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(YpMember ypMember, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<YpMember> page = ypMemberService.findPage(new Page<YpMember>(request, response), ypMember); 
+		Page<YpMember> page = ypMemberService.findPage(new Page<YpMember>(request, response), ypMember);
 		model.addAttribute("page", page);
 		return "modules/yipan/ypMemberList";
 	}
@@ -71,7 +71,7 @@ public class YpMemberController extends BaseController {
 		addMessage(redirectAttributes, "保存会员管理成功");
 		return "redirect:"+Global.getAdminPath()+"/yipan/ypMember/?repage";
 	}
-	
+
 	@RequiresPermissions("yipan:ypMember:edit")
 	@RequestMapping(value = "delete")
 	public String delete(YpMember ypMember, RedirectAttributes redirectAttributes) {

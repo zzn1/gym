@@ -28,12 +28,12 @@ import com.thinkgem.jeesite.modules.yipan.service.YpSignInManagementService;
  * @version 2020-05-24
  */
 @Controller
-@RequestMapping(value = "${adminPath}/yipan/ypSignInManagement")
+@RequestMapping(value = "${adminPath}/ypSignInManagement")
 public class YpSignInManagementController extends BaseController {
 
 	@Autowired
 	private YpSignInManagementService ypSignInManagementService;
-	
+
 	@ModelAttribute
 	public YpSignInManagement get(@RequestParam(required=false) String id) {
 		YpSignInManagement entity = null;
@@ -45,11 +45,11 @@ public class YpSignInManagementController extends BaseController {
 		}
 		return entity;
 	}
-	
+
 	@RequiresPermissions("yipan:ypSignInManagement:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(YpSignInManagement ypSignInManagement, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<YpSignInManagement> page = ypSignInManagementService.findPage(new Page<YpSignInManagement>(request, response), ypSignInManagement); 
+		Page<YpSignInManagement> page = ypSignInManagementService.findPage(new Page<YpSignInManagement>(request, response), ypSignInManagement);
 		model.addAttribute("page", page);
 		return "modules/yipan/ypSignInManagementList";
 	}
@@ -71,7 +71,7 @@ public class YpSignInManagementController extends BaseController {
 		addMessage(redirectAttributes, "保存打卡记录成功");
 		return "redirect:"+Global.getAdminPath()+"/yipan/ypSignInManagement/?repage";
 	}
-	
+
 	@RequiresPermissions("yipan:ypSignInManagement:edit")
 	@RequestMapping(value = "delete")
 	public String delete(YpSignInManagement ypSignInManagement, RedirectAttributes redirectAttributes) {

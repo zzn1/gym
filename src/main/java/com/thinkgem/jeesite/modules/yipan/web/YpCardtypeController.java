@@ -28,12 +28,12 @@ import com.thinkgem.jeesite.modules.yipan.service.YpCardtypeService;
  * @version 2020-05-24
  */
 @Controller
-@RequestMapping(value = "${adminPath}/yipan/ypCardtype")
+@RequestMapping(value = "${adminPath}/ypCardtype")
 public class YpCardtypeController extends BaseController {
 
 	@Autowired
 	private YpCardtypeService ypCardtypeService;
-	
+
 	@ModelAttribute
 	public YpCardtype get(@RequestParam(required=false) String id) {
 		YpCardtype entity = null;
@@ -45,11 +45,11 @@ public class YpCardtypeController extends BaseController {
 		}
 		return entity;
 	}
-	
+
 	@RequiresPermissions("yipan:ypCardtype:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(YpCardtype ypCardtype, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<YpCardtype> page = ypCardtypeService.findPage(new Page<YpCardtype>(request, response), ypCardtype); 
+		Page<YpCardtype> page = ypCardtypeService.findPage(new Page<YpCardtype>(request, response), ypCardtype);
 		model.addAttribute("page", page);
 		return "modules/yipan/ypCardtypeList";
 	}
@@ -71,7 +71,7 @@ public class YpCardtypeController extends BaseController {
 		addMessage(redirectAttributes, "保存卡种表方案成功");
 		return "redirect:"+Global.getAdminPath()+"/yipan/ypCardtype/?repage";
 	}
-	
+
 	@RequiresPermissions("yipan:ypCardtype:edit")
 	@RequestMapping(value = "delete")
 	public String delete(YpCardtype ypCardtype, RedirectAttributes redirectAttributes) {
