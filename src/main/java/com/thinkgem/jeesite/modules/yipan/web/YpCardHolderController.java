@@ -53,6 +53,13 @@ public class YpCardHolderController extends BaseController {
         return "modules/yipan/ypCardHolderList";
     }
 
+    /**
+     * 根据openId获取持卡信息列表
+     *
+     * @param openId
+     * @param ypCardHolder
+     * @return
+     */
     @RequestMapping(value = {"list/{openId}"})
     @ResponseBody
     public List<YpCardHolder> listByOpenId(@PathVariable("openId") String openId, YpCardHolder ypCardHolder) {

@@ -9,10 +9,11 @@ import com.thinkgem.jeesite.modules.yipan.entity.YpSignInManagement;
 
 /**
  * 打卡记录DAO接口
+ *
  * @author zcx
  * @version 2020-05-24
  */
 @MyBatisDao
 public interface YpSignInManagementDao extends CrudDao<YpSignInManagement> {
-	
+
 }

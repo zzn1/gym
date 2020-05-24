@@ -9,10 +9,11 @@ import com.thinkgem.jeesite.modules.yipan.entity.YpCard;
 
 /**
  * 卡种管理DAO接口
+ *
  * @author zcx
  * @version 2020-05-05
  */
 @MyBatisDao
 public interface YpCardDao extends CrudDao<YpCard> {
-	
+
 }

@@ -9,10 +9,11 @@ import com.thinkgem.jeesite.modules.yipan.entity.YpBill;
 
 /**
  * 流水记账DAO接口
+ *
  * @author zcx
  * @version 2020-05-24
  */
 @MyBatisDao
 public interface YpBillDao extends CrudDao<YpBill> {
-	
+
 }
