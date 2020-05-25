@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  * @version 2020-05-24
  */
 @Controller
-@RequestMapping(value = "${adminPath}/ypRockHall")
+@RequestMapping(value = "${adminPath}/yipan//ypRockHall")
 public class YpRockHallController extends BaseController {
 
     @Autowired

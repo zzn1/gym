@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  * @version 2020-05-24
  */
 @Controller
-@RequestMapping(value = "${adminPath}/ypBill")
+@RequestMapping(value = "${adminPath}/yipan//ypBill")
 public class YpBillController extends BaseController {
 
     @Autowired
