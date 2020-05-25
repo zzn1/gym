@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  * @version 2020-05-24
  */
 @Controller
-@RequestMapping(value = "${adminPath}/yipan//ypSignInManagement")
+@RequestMapping(value = "${adminPath}/yipan/ypSignInManagement")
 public class YpSignInManagementController extends BaseController {
 
     @Autowired

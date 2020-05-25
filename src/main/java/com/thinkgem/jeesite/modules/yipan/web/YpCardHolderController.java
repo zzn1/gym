@@ -27,7 +27,7 @@ import java.util.List;
  * @version 2020-05-24
  */
 @Controller
-@RequestMapping(value = "${adminPath}/yipan//ypCardHolder")
+@RequestMapping(value = "${adminPath}/yipan/ypCardHolder")
 public class YpCardHolderController extends BaseController {
 
     @Autowired
