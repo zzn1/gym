@@ -7,6 +7,7 @@ import com.thinkgem.jeesite.common.config.Global;
 import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.utils.StringUtils;
 import com.thinkgem.jeesite.common.web.BaseController;
+import com.thinkgem.jeesite.modules.yipan.dto.ServiceResult;
 import com.thinkgem.jeesite.modules.yipan.entity.YpCardHolder;
 import com.thinkgem.jeesite.modules.yipan.service.YpCardHolderService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -62,9 +63,9 @@ public class YpCardHolderController extends BaseController {
      */
     @RequestMapping(value = {"list/{openId}"})
     @ResponseBody
-    public List<YpCardHolder> listByOpenId(@PathVariable("openId") String openId, YpCardHolder ypCardHolder) {
+    public ServiceResult<List<YpCardHolder>> listByOpenId(@PathVariable("openId") String openId, YpCardHolder ypCardHolder) {
         ypCardHolder.setOpenid(openId);
-        return ypCardHolderService.findList(ypCardHolder);
+        return ServiceResult.success(ypCardHolderService.findList(ypCardHolder));
     }
 
     @RequiresPermissions("yipan:ypCardHolder:view")
