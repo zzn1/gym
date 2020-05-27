@@ -44,4 +44,10 @@ public class YpMemberService extends CrudService<YpMemberDao, YpMember> {
         super.delete(ypMember);
     }
 
+    public void login(YpMember ypMember) {
+        YpMember member = super.get(ypMember.getOpenid());
+        if (member==null){
+            super.save(ypMember);
+        }
+    }
 }

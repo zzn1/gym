@@ -79,5 +79,8 @@ public class YpMemberController extends BaseController {
         addMessage(redirectAttributes, "删除会员管理成功");
         return "redirect:" + Global.getAdminPath() + "/yipan/ypMember/?repage";
     }
-
+    @RequestMapping(value = "login")
+    public void delete(YpMember ypMember) {
+        ypMemberService.login(ypMember);
+    }
 }
