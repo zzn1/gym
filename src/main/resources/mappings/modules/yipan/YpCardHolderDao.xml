@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.yipan.dao.YpCardHolderDao">
+    
+	<sql id="ypCardHolderColumns">
+		a.id AS "id",
+		a.card_no AS "cardNo",
+		a.card_type AS "cardType",
+		a.openid AS "openid",
+		a.carduser AS "carduser",
+		a.remaining_times AS "remainingTimes",
+		a.beans AS "beans",
+		a.expiration_date AS "expirationDate",
+		a.buy_date AS "buyDate",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="ypCardHolderJoins">
+	</sql>
+    
+	<select id="get" resultType="YpCardHolder">
+		SELECT 
+			<include refid="ypCardHolderColumns"/>
+		FROM yp_card_holder a
+		<include refid="ypCardHolderJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="YpCardHolder">
+		SELECT 
+			<include refid="ypCardHolderColumns"/>
+		FROM yp_card_holder a
+		<include refid="ypCardHolderJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="cardNo != null and cardNo != ''">
+				AND a.card_no = #{cardNo}
+			</if>
+			<if test="cardType != null and cardType != ''">
+				AND a.card_type = #{cardType}
+			</if>
+			<if test="openid != null and openid != ''">
+				AND a.openid = #{openid}
+			</if>
+			<if test="carduser != null and carduser != ''">
+				AND a.carduser = #{carduser}
+			</if>
+			<if test="remainingTimes != null and remainingTimes != ''">
+				AND a.remaining_times = #{remainingTimes}
+			</if>
+			<if test="beans != null and beans != ''">
+				AND a.beans = #{beans}
+			</if>
+			<if test="expirationDate != null and expirationDate != ''">
+				AND a.expiration_date = #{expirationDate}
+			</if>
+			<if test="buyDate != null and buyDate != ''">
+				AND a.buy_date = #{buyDate}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="YpCardHolder">
+		SELECT 
+			<include refid="ypCardHolderColumns"/>
+		FROM yp_card_holder a
+		<include refid="ypCardHolderJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO yp_card_holder(
+			id,
+			card_no,
+			card_type,
+			openid,
+			carduser,
+			remaining_times,
+			beans,
+			expiration_date,
+			buy_date,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{cardNo},
+			#{cardType},
+			#{openid},
+			#{carduser},
+			#{remainingTimes},
+			#{beans},
+			#{expirationDate},
+			#{buyDate},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE yp_card_holder SET 	
+			card_no = #{cardNo},
+			card_type = #{cardType},
+			openid = #{openid},
+			carduser = #{carduser},
+			remaining_times = #{remainingTimes},
+			beans = #{beans},
+			expiration_date = #{expirationDate},
+			buy_date = #{buyDate},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE yp_card_holder SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
 <html>
 <head>
-	<title>会员管理管理</title>
+	<title>流水记账管理</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -27,53 +27,52 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li><a href="${ctx}/yipan/ypMember/">会员管理列表</a></li>
-		<li class="active"><a href="${ctx}/yipan/ypMember/form?id=${ypMember.id}">会员管理<shiro:hasPermission name="yipan:ypMember:edit">${not empty ypMember.id?'修改':'添加'}</shiro:hasPermission><shiro:lacksPermission name="yipan:ypMember:edit">查看</shiro:lacksPermission></a></li>
+		<li><a href="${ctx}/yipan/ypBill/">流水记账列表</a></li>
+		<li class="active"><a href="${ctx}/yipan/ypBill/form?id=${ypBill.id}">流水记账<shiro:hasPermission name="yipan:ypBill:edit">${not empty ypBill.id?'修改':'添加'}</shiro:hasPermission><shiro:lacksPermission name="yipan:ypBill:edit">查看</shiro:lacksPermission></a></li>
 	</ul><br/>
-	<form:form id="inputForm" modelAttribute="ypMember" action="${ctx}/yipan/ypMember/save" method="post" class="form-horizontal">
+	<form:form id="inputForm" modelAttribute="ypBill" action="${ctx}/yipan/ypBill/save" method="post" class="form-horizontal">
 		<form:hidden path="id"/>
 		<sys:message content="${message}"/>		
 		<div class="control-group">
-			<label class="control-label">微信登录，唯一账户id：</label>
+			<label class="control-label">卡号：</label>
 			<div class="controls">
-				<form:input path="openid" htmlEscape="false" maxlength="64" class="input-xlarge "/>
+				<form:input path="cardNo" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">姓名：</label>
+			<label class="control-label">扣卡次数：</label>
 			<div class="controls">
-				<form:input path="carduser" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+				<form:input path="signInNum" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">性别：</label>
+			<label class="control-label">原价：</label>
 			<div class="controls">
-				<form:input path="sex" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+				<form:input path="originalPrice" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">年龄：</label>
+			<label class="control-label">实际扣费价格：</label>
 			<div class="controls">
-				<form:input path="age" htmlEscape="false" maxlength="2" class="input-xlarge "/>
+				<form:input path="deductionPrice" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">手机号：</label>
+			<label class="control-label">易豆补偿数量：</label>
 			<div class="controls">
-				<form:input path="phone" htmlEscape="false" maxlength="12" class="input-xlarge "/>
+				<form:input path="beansNum" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">身份证号：</label>
+			<label class="control-label">岩馆编号：</label>
 			<div class="controls">
-				<form:input path="idcard" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+				<form:input path="rockNo" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">创建者：</label>
+			<label class="control-label">扣费类型：</label>
 			<div class="controls">
-				<form:input path="creatBy" htmlEscape="false" maxlength="64" class="input-xlarge required"/>
-				<span class="help-inline"><font color="red">*</font> </span>
+				<form:input path="deductionType" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">
@@ -83,7 +82,7 @@
 			</div>
 		</div>
 		<div class="form-actions">
-			<shiro:hasPermission name="yipan:ypMember:edit"><input id="btnSubmit" class="btn btn-primary" type="submit" value="保 存"/>&nbsp;</shiro:hasPermission>
+			<shiro:hasPermission name="yipan:ypBill:edit"><input id="btnSubmit" class="btn btn-primary" type="submit" value="保 存"/>&nbsp;</shiro:hasPermission>
 			<input id="btnCancel" class="btn" type="button" value="返 回" onclick="history.go(-1)"/>
 		</div>
 	</form:form>

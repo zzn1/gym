@@ -3,9 +3,12 @@
  */
 package com.thinkgem.jeesite.modules.yipan.web;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.thinkgem.jeesite.common.config.Global;
+import com.thinkgem.jeesite.common.persistence.Page;
+import com.thinkgem.jeesite.common.utils.StringUtils;
+import com.thinkgem.jeesite.common.web.BaseController;
+import com.thinkgem.jeesite.modules.yipan.entity.YpCard;
+import com.thinkgem.jeesite.modules.yipan.service.YpCardService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.thinkgem.jeesite.common.config.Global;
-import com.thinkgem.jeesite.common.persistence.Page;
-import com.thinkgem.jeesite.common.web.BaseController;
-import com.thinkgem.jeesite.common.utils.StringUtils;
-import com.thinkgem.jeesite.modules.yipan.entity.YpCard;
-import com.thinkgem.jeesite.modules.yipan.service.YpCardService;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 卡种管理Controller
@@ -33,7 +32,7 @@ public class YpCardController extends BaseController {
 
 	@Autowired
 	private YpCardService ypCardService;
-	
+
 	@ModelAttribute
 	public YpCard get(@RequestParam(required=false) String id) {
 		YpCard entity = null;
@@ -45,11 +44,11 @@ public class YpCardController extends BaseController {
 		}
 		return entity;
 	}
-	
+
 	@RequiresPermissions("yipan:ypCard:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(YpCard ypCard, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<YpCard> page = ypCardService.findPage(new Page<YpCard>(request, response), ypCard); 
+		Page<YpCard> page = ypCardService.findPage(new Page<YpCard>(request, response), ypCard);
 		model.addAttribute("page", page);
 		return "modules/yipan/ypCardList";
 	}
@@ -71,7 +70,7 @@ public class YpCardController extends BaseController {
 		addMessage(redirectAttributes, "保存卡种管理成功");
 		return "redirect:"+Global.getAdminPath()+"/yipan/ypCard/?repage";
 	}
-	
+
 	@RequiresPermissions("yipan:ypCard:edit")
 	@RequestMapping(value = "delete")
 	public String delete(YpCard ypCard, RedirectAttributes redirectAttributes) {

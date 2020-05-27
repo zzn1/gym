@@ -5,43 +5,43 @@ package com.thinkgem.jeesite.modules.yipan.service;
 
 import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.service.CrudService;
-import com.thinkgem.jeesite.modules.yipan.dao.YpCardDao;
-import com.thinkgem.jeesite.modules.yipan.entity.YpCard;
+import com.thinkgem.jeesite.modules.yipan.dao.YpBillDao;
+import com.thinkgem.jeesite.modules.yipan.entity.YpBill;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
- * 卡种管理Service
+ * 流水记账Service
  *
  * @author zcx
- * @version 2020-05-05
+ * @version 2020-05-24
  */
 @Service
 @Transactional(readOnly = true)
-public class YpCardService extends CrudService<YpCardDao, YpCard> {
+public class YpBillService extends CrudService<YpBillDao, YpBill> {
 
-    public YpCard get(String id) {
+    public YpBill get(String id) {
         return super.get(id);
     }
 
-    public List<YpCard> findList(YpCard ypCard) {
-        return super.findList(ypCard);
+    public List<YpBill> findList(YpBill ypBill) {
+        return super.findList(ypBill);
     }
 
-    public Page<YpCard> findPage(Page<YpCard> page, YpCard ypCard) {
-        return super.findPage(page, ypCard);
-    }
-
-    @Transactional(readOnly = false)
-    public void save(YpCard ypCard) {
-        super.save(ypCard);
+    public Page<YpBill> findPage(Page<YpBill> page, YpBill ypBill) {
+        return super.findPage(page, ypBill);
     }
 
     @Transactional(readOnly = false)
-    public void delete(YpCard ypCard) {
-        super.delete(ypCard);
+    public void save(YpBill ypBill) {
+        super.save(ypBill);
+    }
+
+    @Transactional(readOnly = false)
+    public void delete(YpBill ypBill) {
+        super.delete(ypBill);
     }
 
 }

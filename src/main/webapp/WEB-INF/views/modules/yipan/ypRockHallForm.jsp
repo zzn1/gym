@@ -34,6 +34,12 @@
 		<form:hidden path="id"/>
 		<sys:message content="${message}"/>		
 		<div class="control-group">
+			<label class="control-label">岩馆编号：</label>
+			<div class="controls">
+				<form:input path="rockNo" htmlEscape="false" maxlength="64" class="input-xlarge "/>
+			</div>
+		</div>
+		<div class="control-group">
 			<label class="control-label">地区：</label>
 			<div class="controls">
 				<form:input path="region" htmlEscape="false" maxlength="255" class="input-xlarge "/>
@@ -42,7 +48,25 @@
 		<div class="control-group">
 			<label class="control-label">岩馆名称：</label>
 			<div class="controls">
-				<form:input path="name" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+				<form:input path="rockName" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">地址：</label>
+			<div class="controls">
+				<form:input path="add" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">10次卡价格：</label>
+			<div class="controls">
+				<form:input path="priceV10" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">20次卡价格：</label>
+			<div class="controls">
+				<form:input path="priceV20" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">

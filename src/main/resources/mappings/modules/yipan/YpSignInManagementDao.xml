@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.thinkgem.jeesite.modules.yipan.dao.YpMemberDao">
+<mapper namespace="com.thinkgem.jeesite.modules.yipan.dao.YpSignInManagementDao">
     
-	<sql id="ypMemberColumns">
+	<sql id="ypSignInManagementColumns">
 		a.id AS "id",
+		a.card_no AS "cardNo",
+		a.card_type AS "cardType",
 		a.openid AS "openid",
 		a.carduser AS "carduser",
-		a.sex AS "sex",
-		a.age AS "age",
-		a.phone AS "phone",
-		a.idcard AS "idcard",
-		a.creat_by AS "creatBy",
+		a.rock_no AS "rockNo",
+		a.rock_name AS "rockName",
+		a.sign_in_time AS "signInTime",
+		a.create_by AS "createBy.id",
 		a.create_date AS "createDate",
 		a.update_by AS "updateBy.id",
 		a.update_date AS "updateDate",
@@ -18,41 +19,44 @@
 		a.del_flag AS "delFlag"
 	</sql>
 	
-	<sql id="ypMemberJoins">
+	<sql id="ypSignInManagementJoins">
 	</sql>
     
-	<select id="get" resultType="YpMember">
+	<select id="get" resultType="YpSignInManagement">
 		SELECT 
-			<include refid="ypMemberColumns"/>
-		FROM yp_member a
-		<include refid="ypMemberJoins"/>
+			<include refid="ypSignInManagementColumns"/>
+		FROM yp_sign_in_management a
+		<include refid="ypSignInManagementJoins"/>
 		WHERE a.id = #{id}
 	</select>
 	
-	<select id="findList" resultType="YpMember">
+	<select id="findList" resultType="YpSignInManagement">
 		SELECT 
-			<include refid="ypMemberColumns"/>
-		FROM yp_member a
-		<include refid="ypMemberJoins"/>
+			<include refid="ypSignInManagementColumns"/>
+		FROM yp_sign_in_management a
+		<include refid="ypSignInManagementJoins"/>
 		<where>
 			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="cardNo != null and cardNo != ''">
+				AND a.card_no = #{cardNo}
+			</if>
+			<if test="cardType != null and cardType != ''">
+				AND a.card_type = #{cardType}
+			</if>
 			<if test="openid != null and openid != ''">
 				AND a.openid = #{openid}
 			</if>
 			<if test="carduser != null and carduser != ''">
 				AND a.carduser = #{carduser}
 			</if>
-			<if test="sex != null and sex != ''">
-				AND a.sex = #{sex}
+			<if test="rockNo != null and rockNo != ''">
+				AND a.rock_no = #{rockNo}
 			</if>
-			<if test="age != null and age != ''">
-				AND a.age = #{age}
+			<if test="rockName != null and rockName != ''">
+				AND a.rock_name = #{rockName}
 			</if>
-			<if test="phone != null and phone != ''">
-				AND a.phone = #{phone}
-			</if>
-			<if test="idcard != null and idcard != ''">
-				AND a.idcard = #{idcard}
+			<if test="signInTime != null and signInTime != ''">
+				AND a.sign_in_time = #{signInTime}
 			</if>
 		</where>
 		<choose>
@@ -65,11 +69,11 @@
 		</choose>
 	</select>
 	
-	<select id="findAllList" resultType="YpMember">
+	<select id="findAllList" resultType="YpSignInManagement">
 		SELECT 
-			<include refid="ypMemberColumns"/>
-		FROM yp_member a
-		<include refid="ypMemberJoins"/>
+			<include refid="ypSignInManagementColumns"/>
+		FROM yp_sign_in_management a
+		<include refid="ypSignInManagementJoins"/>
 		<where>
 			a.del_flag = #{DEL_FLAG_NORMAL}
 		</where>		
@@ -84,15 +88,16 @@
 	</select>
 	
 	<insert id="insert">
-		INSERT INTO yp_member(
+		INSERT INTO yp_sign_in_management(
 			id,
+			card_no,
+			card_type,
 			openid,
 			carduser,
-			sex,
-			age,
-			phone,
-			idcard,
-			creat_by,
+			rock_no,
+			rock_name,
+			sign_in_time,
+			create_by,
 			create_date,
 			update_by,
 			update_date,
@@ -100,13 +105,14 @@
 			del_flag
 		) VALUES (
 			#{id},
+			#{cardNo},
+			#{cardType},
 			#{openid},
 			#{carduser},
-			#{sex},
-			#{age},
-			#{phone},
-			#{idcard},
-			#{creatBy},
+			#{rockNo},
+			#{rockName},
+			#{signInTime},
+			#{createBy.id},
 			#{createDate},
 			#{updateBy.id},
 			#{updateDate},
@@ -116,14 +122,14 @@
 	</insert>
 	
 	<update id="update">
-		UPDATE yp_member SET 	
+		UPDATE yp_sign_in_management SET 	
+			card_no = #{cardNo},
+			card_type = #{cardType},
 			openid = #{openid},
 			carduser = #{carduser},
-			sex = #{sex},
-			age = #{age},
-			phone = #{phone},
-			idcard = #{idcard},
-			creat_by = #{creatBy},
+			rock_no = #{rockNo},
+			rock_name = #{rockName},
+			sign_in_time = #{signInTime},
 			update_by = #{updateBy.id},
 			update_date = #{updateDate},
 			remarks = #{remarks}
@@ -131,7 +137,7 @@
 	</update>
 	
 	<update id="delete">
-		UPDATE yp_member SET 
+		UPDATE yp_sign_in_management SET 
 			del_flag = #{DEL_FLAG_DELETE}
 		WHERE id = #{id}
 	</update>
