@@ -6,6 +6,7 @@ package com.thinkgem.jeesite.modules.yipan.service;
 import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.service.CrudService;
 import com.thinkgem.jeesite.modules.yipan.dao.YpMemberDao;
+import com.thinkgem.jeesite.modules.yipan.dto.ResponseResult;
 import com.thinkgem.jeesite.modules.yipan.entity.YpMember;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,10 +45,15 @@ public class YpMemberService extends CrudService<YpMemberDao, YpMember> {
         super.delete(ypMember);
     }
 
-    public void login(YpMember ypMember) {
+    public ResponseResult login(YpMember ypMember) {
         YpMember member = super.get(ypMember.getOpenid());
         if (member==null){
-            super.save(ypMember);
+            try {
+                super.save(ypMember);
+            }catch (Exception e){
+                return ResponseResult.error("登录认证失败");
+            }
         }
+        return ResponseResult.success();
     }
 }
