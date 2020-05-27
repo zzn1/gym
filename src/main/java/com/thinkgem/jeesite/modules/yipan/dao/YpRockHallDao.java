@@ -9,11 +9,10 @@ import com.thinkgem.jeesite.modules.yipan.entity.YpRockHall;
 
 /**
  * 岩馆管理DAO接口
- *
  * @author zcx
- * @version 2020-05-24
+ * @version 2020-05-27
  */
 @MyBatisDao
 public interface YpRockHallDao extends CrudDao<YpRockHall> {
-
+	
 }

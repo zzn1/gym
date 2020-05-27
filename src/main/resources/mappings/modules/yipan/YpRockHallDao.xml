@@ -7,7 +7,7 @@
 		a.rock_no AS "rockNo",
 		a.region AS "region",
 		a.rock_name AS "rockName",
-		a.add AS "add",
+		a.address AS "address",
 		a.price_v10 AS "priceV10",
 		a.price_v20 AS "priceV20",
 		a.status AS "status",
@@ -38,17 +38,14 @@
 		<include refid="ypRockHallJoins"/>
 		<where>
 			a.del_flag = #{DEL_FLAG_NORMAL}
-			<if test="id != null and id != ''">
-				AND a.id = #{id}
-			</if>
 			<if test="rockNo != null and rockNo != ''">
 				AND a.rock_no = #{rockNo}
 			</if>
 			<if test="region != null and region != ''">
 				AND a.region = #{region}
 			</if>
-			<if test="add != null and add != ''">
-				AND a.add = #{add}
+			<if test="rockName != null and rockName != ''">
+				AND a.rock_name = #{rockName}
 			</if>
 			<if test="priceV10 != null and priceV10 != ''">
 				AND a.price_v10 = #{priceV10}
@@ -97,7 +94,7 @@
 			rock_no,
 			region,
 			rock_name,
-			add,
+			address,
 			price_v10,
 			price_v20,
 			status,
@@ -113,7 +110,7 @@
 			#{rockNo},
 			#{region},
 			#{rockName},
-			#{add},
+			#{address},
 			#{priceV10},
 			#{priceV20},
 			#{status},
@@ -129,11 +126,10 @@
 	
 	<update id="update">
 		UPDATE yp_rock_hall SET 	
-			id = #{id},
 			rock_no = #{rockNo},
 			region = #{region},
 			rock_name = #{rockName},
-			add = #{add},
+			address = #{address},
 			price_v10 = #{priceV10},
 			price_v20 = #{priceV20},
 			status = #{status},
