@@ -14,8 +14,6 @@ import com.thinkgem.jeesite.common.service.CrudService;
 import com.thinkgem.jeesite.modules.yipan.entity.YpMember;
 import com.thinkgem.jeesite.modules.yipan.dao.YpMemberDao;
 
-import java.util.Date;
-import java.util.List;
 
 /**
  * 会员管理Service
