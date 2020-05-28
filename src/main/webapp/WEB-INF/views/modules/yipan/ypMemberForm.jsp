@@ -70,13 +70,6 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">创建者：</label>
-			<div class="controls">
-				<form:input path="creatBy" htmlEscape="false" maxlength="64" class="input-xlarge required"/>
-				<span class="help-inline"><font color="red">*</font> </span>
-			</div>
-		</div>
-		<div class="control-group">
 			<label class="control-label">备注信息：</label>
 			<div class="controls">
 				<form:textarea path="remarks" htmlEscape="false" rows="4" maxlength="255" class="input-xxlarge "/>

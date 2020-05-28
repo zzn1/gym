@@ -3,22 +3,24 @@
  */
 package com.thinkgem.jeesite.modules.yipan.service;
 
-import com.thinkgem.jeesite.common.persistence.Page;
-import com.thinkgem.jeesite.common.service.CrudService;
-import com.thinkgem.jeesite.modules.yipan.dao.YpMemberDao;
+import java.util.List;
+
 import com.thinkgem.jeesite.modules.yipan.dto.ResponseResult;
-import com.thinkgem.jeesite.modules.yipan.entity.YpMember;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.thinkgem.jeesite.common.persistence.Page;
+import com.thinkgem.jeesite.common.service.CrudService;
+import com.thinkgem.jeesite.modules.yipan.entity.YpMember;
+import com.thinkgem.jeesite.modules.yipan.dao.YpMemberDao;
 
 import java.util.Date;
 import java.util.List;
 
 /**
  * 会员管理Service
- *
  * @author zcx
- * @version 2020-05-24
+ * @version 2020-05-29
  */
 @Service
 @Transactional(readOnly = true)
