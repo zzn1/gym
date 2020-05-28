@@ -80,7 +80,8 @@ public class YpMemberController extends BaseController {
         return "redirect:" + Global.getAdminPath() + "/yipan/ypMember/?repage";
     }
     @RequestMapping(value = "login",method= RequestMethod.POST)
-    public ResponseResult delete(@RequestBody YpMember ypMember) {
-        return ypMemberService.login(ypMember);
+    @ResponseBody
+    public ResponseResult saveYpMember(@RequestBody YpMember ypMember) {
+        return ypMemberService.saveYpMember(ypMember);
     }
 }

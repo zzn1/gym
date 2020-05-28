@@ -11,6 +11,7 @@ import com.thinkgem.jeesite.modules.yipan.entity.YpMember;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -45,15 +46,20 @@ public class YpMemberService extends CrudService<YpMemberDao, YpMember> {
         super.delete(ypMember);
     }
 
-    public ResponseResult login(YpMember ypMember) {
-        YpMember member = super.get(ypMember.getOpenid());
-        if (member==null){
+    @Transactional(readOnly = false)
+    public ResponseResult saveYpMember(YpMember ypMember) {
+        YpMember yp = new YpMember();
+        yp.setOpenid(ypMember.getOpenid());
+        List<YpMember> member = super.findList(yp);
+        if (member.size()==0){
             try {
                 super.save(ypMember);
             }catch (Exception e){
-                return ResponseResult.error("登录认证失败");
+                return ResponseResult.error("登录认证失败:"+e.getMessage());
             }
         }
         return ResponseResult.success();
     }
+
+
 }
