@@ -21,7 +21,6 @@ public class YpMember extends DataEntity<YpMember> {
 	private String age;		// 年龄
 	private String phone;		// 手机号
 	private String idcard;		// 身份证号
-	private String creatBy;		// 创建者
 	
 	public YpMember() {
 		super();
@@ -83,15 +82,6 @@ public class YpMember extends DataEntity<YpMember> {
 
 	public void setIdcard(String idcard) {
 		this.idcard = idcard;
-	}
-	
-	@Length(min=1, max=64, message="创建者长度必须介于 1 和 64 之间")
-	public String getCreatBy() {
-		return creatBy;
-	}
-
-	public void setCreatBy(String creatBy) {
-		this.creatBy = creatBy;
 	}
 	
 }
