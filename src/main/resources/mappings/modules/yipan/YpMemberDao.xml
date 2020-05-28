@@ -123,7 +123,6 @@
 			age = #{age},
 			phone = #{phone},
 			idcard = #{idcard},
-			creat_by = #{creatBy},
 			update_by = #{updateBy.id},
 			update_date = #{updateDate},
 			remarks = #{remarks}

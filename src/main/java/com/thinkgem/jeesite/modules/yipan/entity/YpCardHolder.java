@@ -89,7 +89,7 @@ public class YpCardHolder extends DataEntity<YpCardHolder> {
         this.beans = beans;
     }
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     public Date getExpirationDate() {
         return expirationDate;
     }
@@ -98,7 +98,7 @@ public class YpCardHolder extends DataEntity<YpCardHolder> {
         this.expirationDate = expirationDate;
     }
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     public Date getBuyDate() {
         return buyDate;
     }
