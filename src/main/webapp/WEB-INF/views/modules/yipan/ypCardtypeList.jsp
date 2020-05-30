@@ -28,8 +28,14 @@
 			<li><label>地区：</label>
 				<form:input path="area" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
-			<li><label>储值金额：</label>
+			<li><label>卡种：</label>
+				<form:input path="cardType" htmlEscape="false" maxlength="255" class="input-medium"/>
+			</li>
+			<li><label>卡片面值：</label>
 				<form:input path="sstored" htmlEscape="false" maxlength="255" class="input-medium"/>
+			</li>
+			<li><label>卡种名称：</label>
+				<form:input path="cardName" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
 			<li><label>期限：</label>
 				<form:input path="term" htmlEscape="false" maxlength="255" class="input-medium"/>
@@ -46,7 +52,9 @@
 		<thead>
 			<tr>
 				<th>地区</th>
-				<th>储值金额</th>
+				<th>卡种</th>
+				<th>卡片面值</th>
+				<th>卡种名称</th>
 				<th>期限</th>
 				<th>权益</th>
 				<th>更新时间</th>
@@ -61,7 +69,13 @@
 					${ypCardtype.area}
 				</a></td>
 				<td>
+					${ypCardtype.cardType}
+				</td>
+				<td>
 					${ypCardtype.sstored}
+				</td>
+				<td>
+					${ypCardtype.cardName}
 				</td>
 				<td>
 					${ypCardtype.term}

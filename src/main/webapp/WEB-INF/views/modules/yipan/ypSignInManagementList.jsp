@@ -28,7 +28,7 @@
 			<li><label>卡号：</label>
 				<form:input path="cardNo" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
-			<li><label>卡类型：</label>
+			<li><label>卡种：</label>
 				<form:input path="cardType" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
 			<li><label>openid：</label>
@@ -57,7 +57,7 @@
 		<thead>
 			<tr>
 				<th>卡号</th>
-				<th>卡类型</th>
+				<th>卡种</th>
 				<th>openid</th>
 				<th>持卡人姓名</th>
 				<th>岩馆编号</th>

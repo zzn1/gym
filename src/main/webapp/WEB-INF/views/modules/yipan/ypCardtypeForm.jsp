@@ -46,9 +46,15 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">储值金额：</label>
+			<label class="control-label">卡片面值：</label>
 			<div class="controls">
 				<form:input path="sstored" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">卡种名称：</label>
+			<div class="controls">
+				<form:input path="cardName" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">
@@ -61,12 +67,6 @@
 			<label class="control-label">权益：</label>
 			<div class="controls">
 				<form:input path="equity" htmlEscape="false" maxlength="255" class="input-xlarge "/>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label">创建者：</label>
-			<div class="controls">
-				<form:input path="creatBy" htmlEscape="false" maxlength="64" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">

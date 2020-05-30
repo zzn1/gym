@@ -7,9 +7,10 @@
 		a.area AS "area",
 		a.card_type AS "cardType",
 		a.sstored AS "sstored",
+		a.card_name AS "cardName",
 		a.term AS "term",
 		a.equity AS "equity",
-		a.creat_by AS "creatBy",
+		a.create_by AS "createBy.id",
 		a.create_date AS "createDate",
 		a.update_by AS "updateBy.id",
 		a.update_date AS "updateDate",
@@ -38,8 +39,14 @@
 			<if test="area != null and area != ''">
 				AND a.area = #{area}
 			</if>
+			<if test="cardType != null and cardType != ''">
+				AND a.card_type = #{cardType}
+			</if>
 			<if test="sstored != null and sstored != ''">
 				AND a.sstored = #{sstored}
+			</if>
+			<if test="cardName != null and cardName != ''">
+				AND a.card_name = #{cardName}
 			</if>
 			<if test="term != null and term != ''">
 				AND a.term = #{term}
@@ -82,9 +89,10 @@
 			area,
 			card_type,
 			sstored,
+			card_name,
 			term,
 			equity,
-			creat_by,
+			create_by,
 			create_date,
 			update_by,
 			update_date,
@@ -95,9 +103,10 @@
 			#{area},
 			#{cardType},
 			#{sstored},
+			#{cardName},
 			#{term},
 			#{equity},
-			#{creatBy},
+			#{createBy.id},
 			#{createDate},
 			#{updateBy.id},
 			#{updateDate},
@@ -111,9 +120,9 @@
 			area = #{area},
 			card_type = #{cardType},
 			sstored = #{sstored},
+			card_name = #{cardName},
 			term = #{term},
 			equity = #{equity},
-			creat_by = #{creatBy},
 			update_by = #{updateBy.id},
 			update_date = #{updateDate},
 			remarks = #{remarks}

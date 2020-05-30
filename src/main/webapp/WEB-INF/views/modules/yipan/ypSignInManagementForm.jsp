@@ -40,7 +40,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">卡类型：</label>
+			<label class="control-label">卡种：</label>
 			<div class="controls">
 				<form:input path="cardType" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
