@@ -6,13 +6,12 @@ package com.thinkgem.jeesite.modules.yipan.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thinkgem.jeesite.modules.yipan.dto.ResponseResult;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.thinkgem.jeesite.common.config.Global;
@@ -80,4 +79,9 @@ public class YpMemberController extends BaseController {
 		return "redirect:"+Global.getAdminPath()+"/yipan/ypMember/?repage";
 	}
 
+	@RequestMapping(value = "login",method= RequestMethod.POST)
+	@ResponseBody
+	public ResponseResult saveYpMember(@RequestBody YpMember ypMember) {
+		return ypMemberService.saveYpMember(ypMember);
+	}
 }

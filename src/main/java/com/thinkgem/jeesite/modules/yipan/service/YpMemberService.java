@@ -58,7 +58,7 @@ public class YpMemberService extends CrudService<YpMemberDao, YpMember> {
                 return ResponseResult.error("登录认证失败:"+e.getMessage());
             }
         }
-        return ResponseResult.success();
+        return ResponseResult.success(ypMember.getOpenid());
     }
 
     public YpMember findByOpenId(String openId) {

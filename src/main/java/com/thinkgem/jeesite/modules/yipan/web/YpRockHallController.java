@@ -7,6 +7,7 @@ import com.thinkgem.jeesite.common.config.Global;
 import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.utils.StringUtils;
 import com.thinkgem.jeesite.common.web.BaseController;
+import com.thinkgem.jeesite.modules.yipan.dto.DropDownResult;
 import com.thinkgem.jeesite.modules.yipan.dto.ServiceResult;
 import com.thinkgem.jeesite.modules.yipan.entity.YpRockHall;
 import com.thinkgem.jeesite.modules.yipan.service.YpRockHallService;
@@ -56,8 +57,8 @@ public class YpRockHallController extends BaseController {
 
     @RequestMapping(value = "mlist")
     @ResponseBody
-    public ServiceResult<List<YpRockHall>> mList() {
-        return ServiceResult.success(ypRockHallService.findList(new YpRockHall()));
+    public List<DropDownResult> mList() {
+        return ypRockHallService.ypRockHallToDropDownResult(new YpRockHall());
     }
 
     /**
