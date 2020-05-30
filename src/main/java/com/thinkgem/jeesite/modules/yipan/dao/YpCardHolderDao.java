@@ -6,13 +6,17 @@ package com.thinkgem.jeesite.modules.yipan.dao;
 import com.thinkgem.jeesite.common.persistence.CrudDao;
 import com.thinkgem.jeesite.common.persistence.annotation.MyBatisDao;
 import com.thinkgem.jeesite.modules.yipan.entity.YpCardHolder;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * 持卡信息DAO接口
+ *
  * @author zcx
- * @version 2020-05-30
+ * @version 2020-05-24
  */
 @MyBatisDao
 public interface YpCardHolderDao extends CrudDao<YpCardHolder> {
-	
+
+    @Select("select * from yp_card_holder where card_no = #{cardNo}")
+    YpCardHolder findByCardNo(String cardNo);
 }

@@ -8,8 +8,6 @@ import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.utils.StringUtils;
 import com.thinkgem.jeesite.common.web.BaseController;
 import com.thinkgem.jeesite.modules.yipan.dto.ServiceResult;
-import com.thinkgem.jeesite.modules.yipan.entity.YpCardHolder;
-import com.thinkgem.jeesite.modules.yipan.entity.YpRockHall;
 import com.thinkgem.jeesite.modules.yipan.entity.YpSignInManagement;
 import com.thinkgem.jeesite.modules.yipan.service.YpSignInManagementService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -94,6 +92,12 @@ public class YpSignInManagementController extends BaseController {
         ypSignInManagementService.delete(ypSignInManagement);
         addMessage(redirectAttributes, "删除打卡记录成功");
         return "redirect:" + Global.getAdminPath() + "/yipan/ypSignInManagement/?repage";
+    }
+
+    @RequestMapping(value = "debit/{openId}/{cardNo}/{rockNo}")
+    @ResponseBody
+    public ServiceResult debit(@PathVariable("openId") String openId, @PathVariable("cardNo") String cardNo, @PathVariable("rockNo") String rockNo) {
+        return ypSignInManagementService.debit(openId, cardNo, rockNo);
     }
 
 }

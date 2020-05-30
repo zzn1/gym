@@ -21,16 +21,24 @@ public class ServiceResult<T> implements Serializable {
     public ServiceResult() {
     }
 
-    public static <T> ServiceResult<T> success(T result){
+    public static <T> ServiceResult<T> success(T result) {
         ServiceResult<T> item = new ServiceResult<T>();
         item.success = true;
         item.result = result;
         item.errors = 0;
         item.message = "success";
-        return  item;
+        return item;
     }
 
-    public static <T> ServiceResult<T> failure(String errorMessage, Integer errorCode){
+    public static <T> ServiceResult<T> success() {
+        ServiceResult<T> item = new ServiceResult<T>();
+        item.success = true;
+        item.errors = 0;
+        item.message = "success";
+        return item;
+    }
+
+    public static <T> ServiceResult<T> failure(String errorMessage, Integer errorCode) {
         ServiceResult<T> item = new ServiceResult<T>();
         item.success = false;
         item.errors = errorCode;
@@ -38,13 +46,22 @@ public class ServiceResult<T> implements Serializable {
         return item;
     }
 
-    public static <T> ServiceResult<T> failure(Integer errorCode){
+    public static <T> ServiceResult<T> failure(Integer errorCode) {
         ServiceResult<T> item = new ServiceResult<T>();
         item.success = false;
         item.errors = errorCode;
         item.message = "failure";
         return item;
     }
+
+    public static <T> ServiceResult<T> failure(String message) {
+        ServiceResult<T> item = new ServiceResult<T>();
+        item.success = false;
+        item.errors = 1;
+        item.message = message;
+        return item;
+    }
+
     public boolean isSuccess() {
         return success;
     }

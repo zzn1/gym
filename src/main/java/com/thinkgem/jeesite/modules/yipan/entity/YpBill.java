@@ -27,6 +27,16 @@ public class YpBill extends DataEntity<YpBill> {
         super();
     }
 
+    public YpBill(String cardNo, String signInNum, String originalPrice, String deductionPrice, String beansNum, String rockNo, String deductionType) {
+        this.cardNo = cardNo;
+        this.signInNum = signInNum;
+        this.originalPrice = originalPrice;
+        this.deductionPrice = deductionPrice;
+        this.beansNum = beansNum;
+        this.rockNo = rockNo;
+        this.deductionType = deductionType;
+    }
+
     public YpBill(String id) {
         super(id);
     }

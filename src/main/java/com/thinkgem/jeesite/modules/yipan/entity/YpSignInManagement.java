@@ -30,6 +30,16 @@ public class YpSignInManagement extends DataEntity<YpSignInManagement> {
         super();
     }
 
+    public YpSignInManagement(String cardNo, String cardType, String openid, String carduser, String rockNo, String rockName, Date signInTime) {
+        this.cardNo = cardNo;
+        this.cardType = cardType;
+        this.openid = openid;
+        this.carduser = carduser;
+        this.rockNo = rockNo;
+        this.rockName = rockName;
+        this.signInTime = signInTime;
+    }
+
     public YpSignInManagement(String id) {
         super(id);
     }
