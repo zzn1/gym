@@ -43,6 +43,9 @@
 			<li><label>身份证号：</label>
 				<form:input path="idcard" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
+			<li><label>易豆：</label>
+				<form:input path="beans" htmlEscape="false" maxlength="20" class="input-medium"/>
+			</li>
 			<li class="btns"><input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/></li>
 			<li class="clearfix"></li>
 		</ul>
@@ -57,6 +60,7 @@
 				<th>年龄</th>
 				<th>手机号</th>
 				<th>身份证号</th>
+				<th>易豆</th>
 				<th>更新时间</th>
 				<th>备注信息</th>
 				<shiro:hasPermission name="yipan:ypMember:edit"><th>操作</th></shiro:hasPermission>
@@ -82,6 +86,9 @@
 				</td>
 				<td>
 					${ypMember.idcard}
+				</td>
+				<td>
+					${ypMember.beans}
 				</td>
 				<td>
 					<fmt:formatDate value="${ypMember.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>

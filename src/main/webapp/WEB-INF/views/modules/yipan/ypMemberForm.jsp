@@ -70,6 +70,12 @@
 			</div>
 		</div>
 		<div class="control-group">
+			<label class="control-label">易豆：</label>
+			<div class="controls">
+				<form:input path="beans" htmlEscape="false" maxlength="20" class="input-xlarge  digits"/>
+			</div>
+		</div>
+		<div class="control-group">
 			<label class="control-label">备注信息：</label>
 			<div class="controls">
 				<form:textarea path="remarks" htmlEscape="false" rows="4" maxlength="255" class="input-xxlarge "/>

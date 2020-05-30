@@ -28,7 +28,7 @@
 			<li><label>卡号：</label>
 				<form:input path="cardNo" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
-			<li><label>卡种：</label>
+			<li><label>卡类型：</label>
 				<form:input path="cardType" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
 			<li><label>openid：</label>
@@ -40,18 +40,18 @@
 			<li><label>剩余次数：</label>
 				<form:input path="remainingTimes" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
-			<li><label>易豆：</label>
-				<form:input path="beans" htmlEscape="false" maxlength="255" class="input-medium"/>
-			</li>
+<%--			<li><label>易豆：</label>--%>
+<%--				<form:input path="beans" htmlEscape="false" maxlength="255" class="input-medium"/>--%>
+<%--			</li>--%>
 			<li><label>失效日期：</label>
 				<input name="expirationDate" type="text" readonly="readonly" maxlength="20" class="input-medium Wdate"
-					value="<fmt:formatDate value="${ypCardHolder.expirationDate}" pattern="yyyy-MM-dd"/>"
-					onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});"/>
+					value="<fmt:formatDate value="${ypCardHolder.expirationDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"
+					onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false});"/>
 			</li>
 			<li><label>购卡日期：</label>
 				<input name="buyDate" type="text" readonly="readonly" maxlength="20" class="input-medium Wdate"
-					value="<fmt:formatDate value="${ypCardHolder.buyDate}" pattern="yyyy-MM-dd"/>"
-					onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});"/>
+					value="<fmt:formatDate value="${ypCardHolder.buyDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"
+					onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false});"/>
 			</li>
 			<li class="btns"><input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/></li>
 			<li class="clearfix"></li>
@@ -62,11 +62,11 @@
 		<thead>
 			<tr>
 				<th>卡号</th>
-				<th>卡种</th>
+				<th>卡类型</th>
 				<th>openid</th>
 				<th>持卡人姓名</th>
 				<th>剩余次数</th>
-				<th>易豆</th>
+<%--				<th>易豆</th>--%>
 				<th>失效日期</th>
 				<th>购卡日期</th>
 				<th>更新时间</th>

@@ -40,7 +40,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">卡种：</label>
+			<label class="control-label">卡类型：</label>
 			<div class="controls">
 				<form:input path="cardType" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
@@ -60,29 +60,29 @@
 		<div class="control-group">
 			<label class="control-label">剩余次数：</label>
 			<div class="controls">
-				<form:input path="remainingTimes" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+				<form:input path="remainingTimes" htmlEscape="false" maxlength="255" class="input-xlarge  digits"/>
 			</div>
 		</div>
-		<div class="control-group">
-			<label class="control-label">易豆：</label>
-			<div class="controls">
-				<form:input path="beans" htmlEscape="false" maxlength="255" class="input-xlarge "/>
-			</div>
-		</div>
+<%--		<div class="control-group">--%>
+<%--			<label class="control-label">易豆：</label>--%>
+<%--			<div class="controls">--%>
+<%--				<form:input path="beans" htmlEscape="false" maxlength="255" class="input-xlarge "/>--%>
+<%--			</div>--%>
+<%--		</div>--%>
 		<div class="control-group">
 			<label class="control-label">失效日期：</label>
 			<div class="controls">
 				<input name="expirationDate" type="text" readonly="readonly" maxlength="20" class="input-medium Wdate "
-					value="<fmt:formatDate value="${ypCardHolder.expirationDate}" pattern="yyyy-MM-dd"/>"
-					onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});"/>
+					value="<fmt:formatDate value="${ypCardHolder.expirationDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"
+					onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false});"/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">购卡日期：</label>
 			<div class="controls">
 				<input name="buyDate" type="text" readonly="readonly" maxlength="20" class="input-medium Wdate "
-					value="<fmt:formatDate value="${ypCardHolder.buyDate}" pattern="yyyy-MM-dd"/>"
-					onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});"/>
+					value="<fmt:formatDate value="${ypCardHolder.buyDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"
+					onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false});"/>
 			</div>
 		</div>
 		<div class="control-group">

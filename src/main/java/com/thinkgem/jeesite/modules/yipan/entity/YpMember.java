@@ -10,7 +10,7 @@ import com.thinkgem.jeesite.common.persistence.DataEntity;
 /**
  * 会员管理Entity
  * @author zcx
- * @version 2020-05-29
+ * @version 2020-05-30
  */
 public class YpMember extends DataEntity<YpMember> {
 	
@@ -21,6 +21,7 @@ public class YpMember extends DataEntity<YpMember> {
 	private String age;		// 年龄
 	private String phone;		// 手机号
 	private String idcard;		// 身份证号
+	private Long beans;		// 易豆
 	
 	public YpMember() {
 		super();
@@ -82,6 +83,14 @@ public class YpMember extends DataEntity<YpMember> {
 
 	public void setIdcard(String idcard) {
 		this.idcard = idcard;
+	}
+	
+	public Long getBeans() {
+		return beans;
+	}
+
+	public void setBeans(Long beans) {
+		this.beans = beans;
 	}
 	
 }

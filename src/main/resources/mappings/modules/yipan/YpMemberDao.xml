@@ -10,6 +10,7 @@
 		a.age AS "age",
 		a.phone AS "phone",
 		a.idcard AS "idcard",
+		a.beans AS "beans",
 		a.create_by AS "createBy.id",
 		a.create_date AS "createDate",
 		a.update_by AS "updateBy.id",
@@ -54,6 +55,9 @@
 			<if test="idcard != null and idcard != ''">
 				AND a.idcard = #{idcard}
 			</if>
+			<if test="beans != null and beans != ''">
+				AND a.beans = #{beans}
+			</if>
 		</where>
 		<choose>
 			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
@@ -92,6 +96,7 @@
 			age,
 			phone,
 			idcard,
+			beans,
 			create_by,
 			create_date,
 			update_by,
@@ -106,6 +111,7 @@
 			#{age},
 			#{phone},
 			#{idcard},
+			#{beans},
 			#{createBy.id},
 			#{createDate},
 			#{updateBy.id},
@@ -123,6 +129,7 @@
 			age = #{age},
 			phone = #{phone},
 			idcard = #{idcard},
+			beans = #{beans},
 			update_by = #{updateBy.id},
 			update_date = #{updateDate},
 			remarks = #{remarks}
