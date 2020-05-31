@@ -37,8 +37,8 @@ public class YpCardHolderService extends CrudService<YpCardHolderDao, YpCardHold
         List<YpCardHolder> ypCardHolders = this.findList(cardHolder);
         List<DropDownResult> dropDownResults = new ArrayList<DropDownResult>();
         if(ypCardHolders.size()>0){
-            DropDownResult dropDownResult = new DropDownResult();
             for (YpCardHolder  ypCardHolder : ypCardHolders){
+                DropDownResult dropDownResult = new DropDownResult();
                 dropDownResult.setId(ypCardHolder.getCardNo());
                 dropDownResult.setText(ypCardHolder.getCardType());
                 dropDownResults.add(dropDownResult);

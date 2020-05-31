@@ -36,8 +36,8 @@ public class YpRockHallService extends CrudService<YpRockHallDao, YpRockHall> {
         List<YpRockHall> ypRockHalls = this.findList(rockHall);
         List<DropDownResult> dropDownResults = new ArrayList<DropDownResult>();
         if(ypRockHalls.size()>0){
-            DropDownResult dropDownResult = new DropDownResult();
             for (YpRockHall  ypRockHall : ypRockHalls){
+                DropDownResult dropDownResult = new DropDownResult();
                 dropDownResult.setId(ypRockHall.getRockNo());
                 dropDownResult.setText(ypRockHall.getRockName());
                 dropDownResults.add(dropDownResult);
