@@ -6,10 +6,13 @@ package com.thinkgem.jeesite.modules.yipan.service;
 import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.service.CrudService;
 import com.thinkgem.jeesite.modules.yipan.dao.YpCardHolderDao;
+import com.thinkgem.jeesite.modules.yipan.dto.DropDownResult;
 import com.thinkgem.jeesite.modules.yipan.entity.YpCardHolder;
+import com.thinkgem.jeesite.modules.yipan.entity.YpRockHall;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,6 +31,20 @@ public class YpCardHolderService extends CrudService<YpCardHolderDao, YpCardHold
 
     public List<YpCardHolder> findList(YpCardHolder ypCardHolder) {
         return super.findList(ypCardHolder);
+    }
+
+    public  List<DropDownResult> getDropDownResults(YpCardHolder cardHolder){
+        List<YpCardHolder> ypCardHolders = this.findList(cardHolder);
+        List<DropDownResult> dropDownResults = new ArrayList<DropDownResult>();
+        if(ypCardHolders.size()>0){
+            DropDownResult dropDownResult = new DropDownResult();
+            for (YpCardHolder  ypCardHolder : ypCardHolders){
+                dropDownResult.setId(ypCardHolder.getCardNo());
+                dropDownResult.setText(ypCardHolder.getCardType());
+                dropDownResults.add(dropDownResult);
+            }
+        }
+        return dropDownResults;
     }
 
     public Page<YpCardHolder> findPage(Page<YpCardHolder> page, YpCardHolder ypCardHolder) {
