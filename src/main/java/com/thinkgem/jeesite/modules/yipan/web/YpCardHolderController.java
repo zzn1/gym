@@ -66,6 +66,20 @@ public class YpCardHolderController extends BaseController {
 		return ypCardHolderService.getDropDownResults(ypCardHolder);
 	}
 
+	/**
+	 * 根据openId获取持卡信息列表
+	 *
+	 * @param openId
+	 * @param ypCardHolder
+	 * @return
+	 */
+	@RequestMapping(value = {"lost/{openId}"})
+	@ResponseBody
+	public  List<YpCardHolder> lostByOpenId(@PathVariable("openId") String openId, YpCardHolder ypCardHolder) {
+		ypCardHolder.setOpenid(openId);
+		return ypCardHolderService.findList(ypCardHolder);
+	}
+
 
 	@RequiresPermissions("yipan:ypCardHolder:view")
 	@RequestMapping(value = {"list", ""})
