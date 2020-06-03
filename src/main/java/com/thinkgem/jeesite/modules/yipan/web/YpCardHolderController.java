@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.thinkgem.jeesite.modules.yipan.dto.DropDownResult;
 import com.thinkgem.jeesite.modules.yipan.dto.ServiceResult;
+import com.thinkgem.jeesite.modules.yipan.dto.YpCardHolderDTO;
+import com.thinkgem.jeesite.modules.yipan.util.EntityDtoUtil;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -75,9 +77,9 @@ public class YpCardHolderController extends BaseController {
 	 */
 	@RequestMapping(value = {"lost/{openId}"})
 	@ResponseBody
-	public  List<YpCardHolder> lostByOpenId(@PathVariable("openId") String openId, YpCardHolder ypCardHolder) {
+	public  List<YpCardHolderDTO> lostByOpenId(@PathVariable("openId") String openId, YpCardHolder ypCardHolder) {
 		ypCardHolder.setOpenid(openId);
-		return ypCardHolderService.findList(ypCardHolder);
+		return EntityDtoUtil.entityTODtoList(ypCardHolderService.findList(ypCardHolder),new ArrayList<YpCardHolderDTO>(),YpCardHolderDTO.class);
 	}
 
 

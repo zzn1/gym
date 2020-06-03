@@ -8,8 +8,10 @@ import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.utils.StringUtils;
 import com.thinkgem.jeesite.common.web.BaseController;
 import com.thinkgem.jeesite.modules.yipan.dto.ServiceResult;
+import com.thinkgem.jeesite.modules.yipan.dto.YpSignInManagementDTO;
 import com.thinkgem.jeesite.modules.yipan.entity.YpSignInManagement;
 import com.thinkgem.jeesite.modules.yipan.service.YpSignInManagementService;
+import com.thinkgem.jeesite.modules.yipan.util.EntityDtoUtil;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -70,9 +73,9 @@ public class YpSignInManagementController extends BaseController {
      */
     @RequestMapping(value = {"list/{openId}"})
     @ResponseBody
-    public List<YpSignInManagement> listByopenId(@PathVariable("openId") String openId, YpSignInManagement ypSignInManagement) {
+    public List<YpSignInManagementDTO> listByopenId(@PathVariable("openId") String openId, YpSignInManagement ypSignInManagement) {
         ypSignInManagement.setOpenid(openId);
-        return ypSignInManagementService.findList(ypSignInManagement);
+        return EntityDtoUtil.entityTODtoList(ypSignInManagementService.findList(ypSignInManagement),new ArrayList<YpSignInManagementDTO>(),YpSignInManagementDTO.class);
     }
 
     @RequiresPermissions("yipan:ypSignInManagement:edit")
