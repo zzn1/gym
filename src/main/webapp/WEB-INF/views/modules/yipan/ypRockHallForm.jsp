@@ -33,12 +33,7 @@
 	<form:form id="inputForm" modelAttribute="ypRockHall" action="${ctx}/yipan/ypRockHall/save" method="post" class="form-horizontal">
 		<form:hidden path="id"/>
 		<sys:message content="${message}"/>		
-		<div class="control-group">
-			<label class="control-label">岩馆编号：</label>
-			<div class="controls">
-				<form:input path="rockNo" htmlEscape="false" maxlength="64" class="input-xlarge "/>
-			</div>
-		</div>
+
 		<div class="control-group">
 			<label class="control-label">地区：</label>
 			<div class="controls">
