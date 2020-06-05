@@ -31,8 +31,14 @@
 			<li><label>地区：</label>
 				<form:input path="region" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
-			<li><label>岩馆名称：</label>
+			<%--<li><label>岩馆名称：</label>
 				<form:input path="rockName" htmlEscape="false" maxlength="255" class="input-medium"/>
+			</li>--%>
+			<li><label>岩馆名称：</label>
+				<sys:treeselect id="office" name="rockNo" value="${ypRockHall.rockNo}"
+								labelName="rockName" labelValue="${ypRockHall.rockName}"
+								title="岩馆名称" url="/sys/office/treeData?type=2" cssClass="input-small" allowClear="true"
+								notAllowSelectParent="true"/>
 			</li>
 			<li><label>10次卡价格：</label>
 				<form:input path="priceV10" htmlEscape="false" maxlength="255" class="input-medium"/>

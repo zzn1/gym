@@ -45,12 +45,29 @@
 				<form:input path="region" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
-		<div class="control-group">
+	<%--	<div class="control-group">
 			<label class="control-label">岩馆名称：</label>
 			<div class="controls">
 				<form:input path="rockName" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
+		</div>--%>
+		<div class="control-group">
+			<label class="control-label">岩馆名称：</label>
+
+			<div class="controls">
+				<sys:treeselect id="office" name="rockNo" value="${ypRockHall.rockNo}" labelName="rockName"
+                                labelValue="${ypRockHall.rockName}"
+                                title="岩馆名称" url="/sys/office/treeData?type=2" cssClass="" allowClear="true"
+								notAllowSelectParent="true"/>
+			</div>
 		</div>
+<%--		<div class="control-group">
+			<label class="control-label">岩馆名称:</label>
+			<div class="controls">
+				<sys:treeselect id="office" name="rockNo" value="${ypRockHall.rockNo}" labelName="rockName" labelValue="${ypRockHall.rockName}"
+								title="岩馆名称" url="/sys/office/treeData?type=2" cssClass="required" notAllowSelectParent="true"/>
+			</div>
+		</div>--%>
 		<div class="control-group">
 			<label class="control-label">地址：</label>
 			<div class="controls">

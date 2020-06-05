@@ -25,7 +25,7 @@
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
 		<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
 		<ul class="ul-form">
-			<li><label>微信登录，唯一账户id：</label>
+			<li><label>openid：</label>
 				<form:input path="openid" htmlEscape="false" maxlength="64" class="input-medium"/>
 			</li>
 			<li><label>姓名：</label>
@@ -54,7 +54,7 @@
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
 		<thead>
 			<tr>
-				<th>微信登录，唯一账户id</th>
+				<th>openid</th>
 				<th>姓名</th>
 				<th>性别</th>
 				<th>年龄</th>

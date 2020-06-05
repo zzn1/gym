@@ -92,9 +92,9 @@
 				<td>
 					${ypCardHolder.remainingTimes}
 				</td>
-				<td>
+<%--				<td>
 					${ypCardHolder.beans}
-				</td>
+				</td>--%>
 				<td>
 					<fmt:formatDate value="${ypCardHolder.expirationDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
 				</td>
