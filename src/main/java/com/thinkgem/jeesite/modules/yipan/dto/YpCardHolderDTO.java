@@ -5,6 +5,10 @@ import java.util.Date;
 
 public class YpCardHolderDTO implements Serializable {
 
+    private String cardNo;		// 卡号
+
+    private String cardType;		// 卡类型
+
     private String carduser;		// 持卡人姓名
 
     private Long remainingTimes;		// 剩余次数
@@ -14,6 +18,14 @@ public class YpCardHolderDTO implements Serializable {
     private Date expirationDate;		// 失效日期
 
     private Date buyDate;		// 购卡日期
+
+    public  String getCardNo(){ return  cardNo;}
+
+    public  void setCardNo(String cardNo){ this.cardNo = cardNo;}
+
+    public  String getCardType(){ return  cardType;}
+
+    public  void setCardType(String cardType){ this.cardType = cardType;}
 
     public String getCarduser() {
         return carduser;
