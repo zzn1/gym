@@ -34,6 +34,6 @@ public class YpSignInManagementDTO implements Serializable {
     }
 
     public void setSignInTime(Date signInTime) {
-        this.signInTime = EntityDtoUtil.simpleDateFormat(signInTime);
+        this.signInTime = EntityDtoUtil.simpleDateFormat(signInTime,"yyyy年MM月dd日 HH时mm分ss秒");
     }
 }

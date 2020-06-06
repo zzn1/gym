@@ -58,7 +58,7 @@ public class YpCardHolderDTO implements Serializable {
     }
 
     public void setExpirationDate(Date expirationDate) {
-        this.expirationDate = EntityDtoUtil.simpleDateFormat(expirationDate);
+        this.expirationDate = EntityDtoUtil.simpleDateFormat(expirationDate,"yyyy年MM月dd日");
     }
 
     public String getBuyDate() {
@@ -66,6 +66,6 @@ public class YpCardHolderDTO implements Serializable {
     }
 
     public void setBuyDate(Date buyDate) {
-        this.buyDate = EntityDtoUtil.simpleDateFormat(buyDate);
+        this.buyDate = EntityDtoUtil.simpleDateFormat(buyDate,"yyyy年MM月dd日");
     }
 }

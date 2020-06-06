@@ -51,14 +51,17 @@ public class YpMemberService extends CrudService<YpMemberDao, YpMember> {
         YpMember yp = new YpMember();
         yp.setOpenid(ypMember.getOpenid());
         List<YpMember> member = super.findList(yp);
+        String beans = "0";
         if (member.size()==0){
             try {
                 super.save(ypMember);
             }catch (Exception e){
                 return ResponseResult.error("登录认证失败:"+e.getMessage());
             }
+        }else {
+            beans = member.get(0).getBeans()+"";
         }
-        return ResponseResult.success(ypMember.getOpenid());
+        return ResponseResult.success(ypMember.getOpenid(),beans);
     }
 
     public YpMember findByOpenId(String openId) {

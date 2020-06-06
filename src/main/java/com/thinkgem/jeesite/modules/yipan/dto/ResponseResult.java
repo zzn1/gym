@@ -8,6 +8,16 @@ public class ResponseResult implements Serializable {
 
     private String message;
 
+    private String beans;
+
+    public String getBeans() {
+        return beans;
+    }
+
+    public void setBeans(String beans) {
+        this.beans = beans;
+    }
+
     public  static  ResponseResult success(){
         ResponseResult responseResult = new ResponseResult();
         responseResult.code = "success";
@@ -18,6 +28,13 @@ public class ResponseResult implements Serializable {
         ResponseResult responseResult = new ResponseResult();
         responseResult.code = "success";
         responseResult.message = message;
+        return responseResult;
+    }
+    public  static  ResponseResult success(String message,String beans){
+        ResponseResult responseResult = new ResponseResult();
+        responseResult.code = "success";
+        responseResult.message = message;
+        responseResult.beans = beans;
         return responseResult;
     }
     public  static  ResponseResult error(){

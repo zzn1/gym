@@ -90,8 +90,8 @@ public class EntityDtoUtil {
     }
 
 
-    public static String simpleDateFormat(Date date){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
+    public static String simpleDateFormat(Date date,String format){
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
         String time = sdf.format(date);
         return time;
     }
