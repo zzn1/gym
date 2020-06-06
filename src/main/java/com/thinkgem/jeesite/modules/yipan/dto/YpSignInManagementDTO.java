@@ -1,5 +1,7 @@
 package com.thinkgem.jeesite.modules.yipan.dto;
 
+import com.thinkgem.jeesite.modules.yipan.util.EntityDtoUtil;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,7 +11,7 @@ public class YpSignInManagementDTO implements Serializable {
 
     private String rockName;        // 岩馆名称
 
-    private Date signInTime;        // 签到时间
+    private String signInTime;        // 签到时间
 
     public String getCardNo() {
         return cardNo;
@@ -27,11 +29,11 @@ public class YpSignInManagementDTO implements Serializable {
         this.rockName = rockName;
     }
 
-    public Date getSignInTime() {
+    public String getSignInTime() {
         return signInTime;
     }
 
     public void setSignInTime(Date signInTime) {
-        this.signInTime = signInTime;
+        this.signInTime = EntityDtoUtil.simpleDateFormat(signInTime);
     }
 }
