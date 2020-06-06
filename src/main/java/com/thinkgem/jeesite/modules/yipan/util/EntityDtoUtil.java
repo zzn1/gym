@@ -1,6 +1,8 @@
 package com.thinkgem.jeesite.modules.yipan.util;
 
 import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -85,5 +87,12 @@ public class EntityDtoUtil {
 
         return target;
 
+    }
+
+
+    public static String simpleDateFormat(Date date){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
+        String time = sdf.format(date);
+        return time;
     }
 }

@@ -1,5 +1,7 @@
 package com.thinkgem.jeesite.modules.yipan.dto;
 
+import com.thinkgem.jeesite.modules.yipan.util.EntityDtoUtil;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -15,9 +17,9 @@ public class YpCardHolderDTO implements Serializable {
 
     private String beans;		// 易豆
 
-    private Date expirationDate;		// 失效日期
+    private String expirationDate;		// 失效日期
 
-    private Date buyDate;		// 购卡日期
+    private String buyDate;		// 购卡日期
 
     public  String getCardNo(){ return  cardNo;}
 
@@ -51,19 +53,19 @@ public class YpCardHolderDTO implements Serializable {
         this.beans = beans;
     }
 
-    public Date getExpirationDate() {
+    public String getExpirationDate() {
         return expirationDate;
     }
 
     public void setExpirationDate(Date expirationDate) {
-        this.expirationDate = expirationDate;
+        this.expirationDate = EntityDtoUtil.simpleDateFormat(expirationDate);
     }
 
-    public Date getBuyDate() {
+    public String getBuyDate() {
         return buyDate;
     }
 
     public void setBuyDate(Date buyDate) {
-        this.buyDate = buyDate;
+        this.buyDate = EntityDtoUtil.simpleDateFormat(buyDate);
     }
 }
