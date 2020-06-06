@@ -5,6 +5,8 @@ package com.thinkgem.jeesite.modules.yipan.service;
 
 import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.service.CrudService;
+import com.thinkgem.jeesite.modules.sys.entity.User;
+import com.thinkgem.jeesite.modules.sys.utils.UserUtils;
 import com.thinkgem.jeesite.modules.yipan.dao.YpSignInManagementDao;
 import com.thinkgem.jeesite.modules.yipan.dto.ServiceResult;
 import com.thinkgem.jeesite.modules.yipan.entity.Enums.CardType;
@@ -52,6 +54,14 @@ public class YpSignInManagementService extends CrudService<YpSignInManagementDao
     }
 
     public Page<YpSignInManagement> findPage(Page<YpSignInManagement> page, YpSignInManagement ypSignInManagement) {
+        User user = UserUtils.getUser();
+        if (!user.isAdmin()) {
+            String officeId = user.getOffice().getId();
+            YpRockHall ypRockHall = rockHallService.findByRockNo(officeId);
+            if (ypRockHall != null) {
+                ypSignInManagement.setRockNo(ypRockHall.getRockNo());
+            }
+        }
         return super.findPage(page, ypSignInManagement);
     }
 

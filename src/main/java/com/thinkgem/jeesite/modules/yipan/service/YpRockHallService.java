@@ -5,6 +5,8 @@ package com.thinkgem.jeesite.modules.yipan.service;
 
 import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.service.CrudService;
+import com.thinkgem.jeesite.modules.sys.entity.User;
+import com.thinkgem.jeesite.modules.sys.utils.UserUtils;
 import com.thinkgem.jeesite.modules.yipan.dao.YpRockHallDao;
 import com.thinkgem.jeesite.modules.yipan.dto.DropDownResult;
 import com.thinkgem.jeesite.modules.yipan.entity.YpRockHall;
@@ -47,6 +49,11 @@ public class YpRockHallService extends CrudService<YpRockHallDao, YpRockHall> {
     }
 
     public Page<YpRockHall> findPage(Page<YpRockHall> page, YpRockHall ypRockHall) {
+        User user = UserUtils.getUser();
+        if (!user.isAdmin()) {
+            String rockNo = user.getOffice().getId();
+            ypRockHall.setRockNo(rockNo);
+        }
         return super.findPage(page, ypRockHall);
     }
 
