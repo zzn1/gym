@@ -31,23 +31,23 @@
 			<li><label>卡种：</label>
 				<form:input path="cardType" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
-			<li><label>openid：</label>
+<%--			<li><label>openid：</label>
 				<form:input path="openid" htmlEscape="false" maxlength="255" class="input-medium"/>
-			</li>
+			</li>--%>
 			<li><label>持卡人姓名：</label>
 				<form:input path="carduser" htmlEscape="false" maxlength="255" class="input-medium"/>
 			</li>
-			<li><label>岩馆编号：</label>
+<%--			<li><label>岩馆编号：</label>
 				<form:input path="rockNo" htmlEscape="false" maxlength="255" class="input-medium"/>
-			</li>
-			<li><label>岩馆名称：</label>
+			</li>--%>
+<%--			<li><label>岩馆名称：</label>
 				<form:input path="rockName" htmlEscape="false" maxlength="255" class="input-medium"/>
-			</li>
-			<li><label>签到时间：</label>
+			</li>--%>
+<%--			<li><label>签到时间：</label>
 				<input name="signInTime" type="text" readonly="readonly" maxlength="20" class="input-medium Wdate"
 					value="<fmt:formatDate value="${ypSignInManagement.signInTime}" pattern="yyyy-MM-dd HH:mm:ss"/>"
 					onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false});"/>
-			</li>
+			</li>--%>
 			<li class="btns"><input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/></li>
 			<li class="clearfix"></li>
 		</ul>
@@ -58,13 +58,13 @@
 			<tr>
 				<th>卡号</th>
 				<th>卡种</th>
-				<th>openid</th>
+<%--				<th>openid</th>--%>
 				<th>持卡人姓名</th>
-				<th>岩馆编号</th>
+<%--				<th>岩馆编号</th>--%>
 				<th>岩馆名称</th>
 				<th>签到时间</th>
 				<th>更新时间</th>
-				<th>备注信息</th>
+<%--				<th>备注信息</th>--%>
 				<shiro:hasPermission name="yipan:ypSignInManagement:edit"><th>操作</th></shiro:hasPermission>
 			</tr>
 		</thead>
@@ -77,15 +77,15 @@
 				<td>
 					${fns:getDictLabel(ypSignInManagement.cardType, 'card_type', '')}
 				</td>
-				<td>
+<%--				<td>
 					${ypSignInManagement.openid}
-				</td>
+				</td>--%>
 				<td>
 					${ypSignInManagement.carduser}
 				</td>
-				<td>
+<%--				<td>
 					${ypSignInManagement.rockNo}
-				</td>
+				</td>--%>
 				<td>
 					${ypSignInManagement.rockName}
 				</td>
@@ -95,9 +95,9 @@
 				<td>
 					<fmt:formatDate value="${ypSignInManagement.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
 				</td>
-				<td>
+<%--				<td>
 					${ypSignInManagement.remarks}
-				</td>
+				</td>--%>
 				<shiro:hasPermission name="yipan:ypSignInManagement:edit"><td>
     				<a href="${ctx}/yipan/ypSignInManagement/form?id=${ypSignInManagement.id}">修改</a>
 					<a href="${ctx}/yipan/ypSignInManagement/delete?id=${ypSignInManagement.id}" onclick="return confirmx('确认要删除该打卡记录吗？', this.href)">删除</a>
