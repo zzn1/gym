@@ -3,9 +3,13 @@
  */
 package com.thinkgem.jeesite.modules.yipan.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.thinkgem.jeesite.modules.yipan.dto.ResponseResult;
+import com.thinkgem.jeesite.modules.yipan.util.UrlUtil;
+import net.sf.json.JSONObject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,12 +52,17 @@ public class YpMemberService extends CrudService<YpMemberDao, YpMember> {
 
     @Transactional(readOnly = false)
     public ResponseResult saveYpMember(YpMember ypMember) {
+        JSONObject jsonObject = UrlUtil.getSessionKeyOrOpenId(ypMember.getOpenid());
+        String openId = jsonObject.getString("openid");
+        //暂未用到,后续调整
+       // String sessionKey = jsonObject.getString("session_key");
         YpMember yp = new YpMember();
-        yp.setOpenid(ypMember.getOpenid());
+        yp.setOpenid(openId);
         List<YpMember> member = super.findList(yp);
         String beans = "0";
         if (member.size()==0){
             try {
+                ypMember.setOpenid(openId);
                 super.save(ypMember);
             }catch (Exception e){
                 return ResponseResult.error("登录认证失败:"+e.getMessage());
@@ -61,7 +70,7 @@ public class YpMemberService extends CrudService<YpMemberDao, YpMember> {
         }else {
             beans = member.get(0).getBeans()+"";
         }
-        return ResponseResult.success(ypMember.getOpenid(),beans);
+        return ResponseResult.success(openId,beans);
     }
 
     public YpMember findByOpenId(String openId) {
@@ -71,4 +80,14 @@ public class YpMemberService extends CrudService<YpMemberDao, YpMember> {
     public void updateBeansByOpenId(String openId, long beans) {
         dao.updateBeansByOpenId(beans, openId);
     }
+
+
+
+
+
+
+
+
+
+
 }

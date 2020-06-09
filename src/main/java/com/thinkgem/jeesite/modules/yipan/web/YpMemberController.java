@@ -82,6 +82,9 @@ public class YpMemberController extends BaseController {
 	@RequestMapping(value = "login",method= RequestMethod.POST)
 	@ResponseBody
 	public ResponseResult saveYpMember(@RequestBody YpMember ypMember) {
+		if (ypMember.getOpenid()==null||ypMember.getOpenid()==""){
+			return ResponseResult.error();
+		}
 		return ypMemberService.saveYpMember(ypMember);
 	}
 }
