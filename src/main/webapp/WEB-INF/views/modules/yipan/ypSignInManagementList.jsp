@@ -75,7 +75,7 @@
 					${ypSignInManagement.cardNo}
 				</a></td>
 				<td>
-					${fns:getDictLabel(ypSignInManagement.cardType, 'card_type', '')}
+					${ypSignInManagement.cardType}
 				</td>
 <%--				<td>
 					${ypSignInManagement.openid}
