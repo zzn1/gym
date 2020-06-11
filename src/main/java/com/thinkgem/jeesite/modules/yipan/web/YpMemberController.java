@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.thinkgem.jeesite.modules.yipan.dto.ResponseResult;
+import com.thinkgem.jeesite.modules.yipan.dto.YpMemberDTO;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -81,7 +82,7 @@ public class YpMemberController extends BaseController {
 
 	@RequestMapping(value = "login",method= RequestMethod.POST)
 	@ResponseBody
-	public ResponseResult saveYpMember(@RequestBody YpMember ypMember) {
+	public ResponseResult saveYpMember(@RequestBody YpMemberDTO ypMember) {
 		if (ypMember.getOpenid()==null||ypMember.getOpenid()==""){
 			return ResponseResult.error();
 		}

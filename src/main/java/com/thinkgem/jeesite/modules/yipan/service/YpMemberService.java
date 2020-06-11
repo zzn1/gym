@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.thinkgem.jeesite.modules.yipan.dto.ResponseResult;
+import com.thinkgem.jeesite.modules.yipan.dto.YpMemberDTO;
 import com.thinkgem.jeesite.modules.yipan.util.UrlUtil;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -51,18 +52,19 @@ public class YpMemberService extends CrudService<YpMemberDao, YpMember> {
     }
 
     @Transactional(readOnly = false)
-    public ResponseResult saveYpMember(YpMember ypMember) {
+    public ResponseResult saveYpMember(YpMemberDTO ypMember) {
         JSONObject jsonObject = UrlUtil.getSessionKeyOrOpenId(ypMember.getOpenid());
         String openId = jsonObject.getString("openid");
-        //暂未用到,后续调整
-       // String sessionKey = jsonObject.getString("session_key");
         YpMember yp = new YpMember();
         yp.setOpenid(openId);
         List<YpMember> member = super.findList(yp);
         String beans = "0";
         if (member.size()==0){
             try {
+                String sessionKey = jsonObject.getString("session_key");
+                JSONObject jsonPhoneNumber = UrlUtil.getPhoneNumber(ypMember.getEncryptedData(),sessionKey,ypMember.getIv());
                 ypMember.setOpenid(openId);
+                ypMember.setPhone(jsonPhoneNumber.getString("phoneNumber"));
                 super.save(ypMember);
             }catch (Exception e){
                 return ResponseResult.error("登录认证失败:"+e.getMessage());
