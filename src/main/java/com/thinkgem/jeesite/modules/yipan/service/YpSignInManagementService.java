@@ -9,11 +9,8 @@ import com.thinkgem.jeesite.modules.sys.entity.User;
 import com.thinkgem.jeesite.modules.sys.utils.UserUtils;
 import com.thinkgem.jeesite.modules.yipan.dao.YpSignInManagementDao;
 import com.thinkgem.jeesite.modules.yipan.dto.ServiceResult;
+import com.thinkgem.jeesite.modules.yipan.entity.*;
 import com.thinkgem.jeesite.modules.yipan.entity.Enums.CardType;
-import com.thinkgem.jeesite.modules.yipan.entity.YpBill;
-import com.thinkgem.jeesite.modules.yipan.entity.YpCardHolder;
-import com.thinkgem.jeesite.modules.yipan.entity.YpRockHall;
-import com.thinkgem.jeesite.modules.yipan.entity.YpSignInManagement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -99,16 +96,23 @@ public class YpSignInManagementService extends CrudService<YpSignInManagementDao
             price = rockHall.getPriceV20();
             vpt = v20_vpt;
         }
+        YpMember member = memberService.findByOpenId(openId);
+        Long memberBeans = member.getBeans();
         //默认扣除一次
         long i = 1;
+        //返还易豆数
+        long beans = 0;
         //当单价大于90时，扣除“单价除以阀值的商”次，如果有余数，则扣除“单价除以阀值的商”+1次
-        long beans = 0; //返还易豆数
         if (price > vpt) {
             int outOfRange = price % vpt > 0 ? 1 : 0;
             if (outOfRange > 0) {
                 beans = price - price % vpt;
+                if (memberBeans >= beans) {
+                    beans = -beans;
+                } else {
+                    i = outOfRange + price / vpt;
+                }
             }
-            i = outOfRange + price / vpt;
         }
         Long remainingTimes = cardHolder.getRemainingTimes();
         //当卡次数不足时，直接返回错误信息
@@ -119,7 +123,7 @@ public class YpSignInManagementService extends CrudService<YpSignInManagementDao
         cardHolder.setRemainingTimes(remainingTimes - i);
         cardHolderService.save(cardHolder);
         //补偿易豆
-        if (beans > 0) {
+        if (beans != 0) {
             memberService.updateBeansByOpenId(openId, beans);
         }
         //保存签到记录
